@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<!-- saved from url=(0088)https://ors.gov.in/copp/print.jsp?NICSecurityORS=CBQ9-9HPG-MKFD-K5PO-PVSS-X119-FAKB-AR9Y -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, Chrome=1">
+        
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        <link href="./ORS Patient Portal_files/stylesheet.css" rel="stylesheet" type="text/css" media="all">
+        <link href="./ORS Patient Portal_files/font-awesome.min.css" rel="stylesheet" type="text/css" media="all">
+        <link href="./ORS Patient Portal_files/print.css" rel="stylesheet" type="text/css" media="all">
+        <title>ORS Patient Portal</title>
+        <link rel="shortcut icon" href="https://ors.gov.in/copp/images/favicon_ors.ico" type="image/x-icon">
+
+    </head>
+
+    <body>
+
+        
+
+
+
+        <div id="mainPrintDiv">
+            <section class="print">
+                <div class="print_head">
+                    <h2>AIIMS Bhopal M.P.</h2>        
+                    <h4>Saket Nagar Bhopal,  </h4>
+
+                    
+                    <h2>Appointment Slip</h2>
+                    
+
+
+                </div>
+
+                <div class="appt_id">
+                    <h4>Appointment No.</h4>
+                    <h3>2108072300200140</h3>
+                    <img src="./ORS Patient Portal_files/barcoderequisition" alt="barcode">
+                </div>
+                <div class="appt_id" style="margin-left: 75%;">                   
+                    <img src="./ORS Patient Portal_files/generate_qr.jsp" alt="qrcode">
+                </div>
+                <hr class="line1">
+                <div class="margin30"></div>
+                <hr class="line2">
+
+                <table width="100%" cellpadding="0" cellspacing="0">
+                    <tbody><tr>
+                        <th width="80%" class="head">
+                    <h2>Department Name : Physical Medicine  AND  Rehabilitation</h2>
+                    <h2>&nbsp;<!--Room No. : Room No :Hospital Building- Floor: Ground Floor-2--></h2>
+                    </th>
+
+                    <th width="80%" class="head">
+                        <img src="data:image/png;base64,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" alt="">
+                    </th>
+                    </tr>
+                </tbody></table>
+                <hr class="line1" style="margin:5px 0 2px;">
+                <table width="100%" cellpadding="0" cellspacing="0" class="details">
+                    <tbody><tr>
+                        <th width="20%">Appointment No.</th>
+                        <td width="30%"><strong>2108072300200140</strong></td>
+                        <th width="20%">Appointment Date</th>
+                        <td width="30%"><strong>11/08/2021 
+                                
+                                (9.00 AM)
+                                
+                            </strong></td>
+                    </tr>
+
+                    <tr>
+                        <th>Patient's Name</th>
+                        <td colspan="3"><strong>Mr. Kartik Balmik</strong></td>
+                        <!--<th>Doctor's Name</th>
+                        <td><strong> Dr. S Y KOTHARI</strong></td>-->
+                    </tr>
+
+                    <tr>
+                        <th>Gender</th>
+                        <td>Male</td>
+                        <th>Age</th>
+                        <td>28  years</td>
+                    </tr>
+
+                    <tr>
+                        <th>Contact Details</th>
+                        <td>
+                            <strong>Mobile No. : </strong>XXXXXXX928 <br>
+                            <strong>E-Mail Id : </strong> <a href="mailto:NA">NA</a>            
+                        </td>
+                        <th>Request Mode (Request Date)</th>
+                        <td>WEB (07/08/2021 09:45 PM)</td>
+                    </tr>
+                    
+                    <tr>
+                       <!-- <th>Aadhaar id</th>
+                        <td>999999999999</td>-->
+
+                        <th>UHID</th>
+                        <td colspan="3" style="text-align: left">20210082095</td>
+                    </tr>
+                    
+
+                    
+                </tbody></table>
+
+                
+                
+                <br><br>
+                <table width="100%" border="0" cellspacing="1" cellpadding="0" style="margin-top:10px;">
+                    <tbody><tr><td>
+                            <span style="font-size:12px;font-weight: bold;">
+                                Reporting Time is 9:00 AM -10:00 AM
+                            </span>
+                        </td></tr>
+                </tbody></table>
+                
+                
+
+                
+
+            </section>
+        </div>
+        <div class="clearfix"></div>
+
+
+
+
+
+    
+
+    <script language="Javascript" type="text/javascript">
+
+        function printReport(node) {
+
+            var content = document.getElementById(node).innerHTML;
+            var cssStr = ' <style type="text/css"> .thinblackborder { border-style:solid;border-color:#000000;border-width:thin;}</style> ';
+            cssStr += ' <link href="css/style.css" rel="stylesheet" type="text/css">';
+            var pwin = window.open('', 'print_content', 'width=100,height=100');
+
+            pwin.document.open();
+            pwin.document.write('<html><head>' + cssStr + '</head><body onload="window.print()">' + content + '</body></html>');
+            pwin.document.close();
+
+            setTimeout(function () {
+                pwin.close();
+            }, 1000);
+
+        }
+        printReport('mainPrintDiv');
+
+    </script>
+
+
+
+</body></html>

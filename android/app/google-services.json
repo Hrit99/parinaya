@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "673364099178",
+    "project_id": "parinaya-a8548",
+    "storage_bucket": "parinaya-a8548.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:673364099178:android:987ee5873fdf2888b4ca13",
+        "android_client_info": {
+          "package_name": "com.example.parinaya"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "673364099178-gfsagu7fmclddig6vgj5t1eu7cnj4hfj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.parinaya",
+            "certificate_hash": "4a94445051bde0e94221818a238d88354f99840e"
+          }
+        },
+        {
+          "client_id": "673364099178-qph00r2l97uf7hm96pidagqqrj7fr0bg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArB38I7sol4880en3JBH6DGvZZLqHfEV8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "673364099178-qph00r2l97uf7hm96pidagqqrj7fr0bg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
