@@ -133,7 +133,7 @@ class _SignUpBoxState extends State<SignUpBox> {
                       linkSent = true;
                     });
                   },
-                  child: Text("Done"))
+                  child: Text("Done")),
             ],
           );
 

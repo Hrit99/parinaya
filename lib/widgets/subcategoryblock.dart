@@ -74,32 +74,38 @@ class _SubcategoryBlockState extends State<SubcategoryBlock> {
                   Border.all(color: Theme.of(context).primaryColor, width: 3)),
           height: getScreenHeight / 8,
           width: getScreenHeight / 8,
-          child: Stack(
-            children: [
-              Center(child: Text(widget.e!.name!)),
-              delform!
-                  ? Positioned(
-                      right: 0,
-                      top: 0,
-                      child: IconButton(
-                        icon: Icon(Icons.delete),
-                        onPressed: () {
-                          // print('j');
-                          // delCategory(widget.e!.name!).then((value) {
-                          //   print(value);
-                          //   if (value) {
-                          //     catpro.delfromcat = widget.e!;
-                          //   }
-                          // });
-                          delsubCategory(selectedc, widget.e!.name!)
-                              .then((value) {
-                            subcatpro.delsubcat(selectedc!, widget.e!);
-                          });
-                        },
-                        iconSize: 20,
-                      ))
-                  : Container()
-            ],
+          child: Center(
+            child: Stack(
+              children: [
+                Center(
+                    child: Text(
+                  widget.e!.name!,
+                  textAlign: TextAlign.center,
+                )),
+                delform!
+                    ? Positioned(
+                        right: 0,
+                        top: 0,
+                        child: IconButton(
+                          icon: Icon(Icons.delete),
+                          onPressed: () {
+                            // print('j');
+                            // delCategory(widget.e!.name!).then((value) {
+                            //   print(value);
+                            //   if (value) {
+                            //     catpro.delfromcat = widget.e!;
+                            //   }
+                            // });
+                            delsubCategory(selectedc, widget.e!.name!)
+                                .then((value) {
+                              subcatpro.delsubcat(selectedc!, widget.e!);
+                            });
+                          },
+                          iconSize: 20,
+                        ))
+                    : Container()
+              ],
+            ),
           ),
         ),
       ),

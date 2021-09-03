@@ -13,6 +13,12 @@ Future<bool> addCategory(String s) async {
   print("jlll");
   try {
     await FirebaseFirestore.instance.collection('/facilities').doc(s).set({});
+    await FirebaseFirestore.instance
+        .collection('/facilities')
+        .doc(s)
+        .collection('directItem')
+        .doc('initc')
+        .set({});
     return Future.value(true);
   } catch (e) {
     return Future.value(false);

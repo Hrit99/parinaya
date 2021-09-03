@@ -157,7 +157,7 @@ class _ItemshowWidgetState extends State<ItemshowWidget> {
                             Container(
                               height: getScreenHeight / 3,
                               width: getScreenWidth,
-                              // color: Colors.green,
+                              color: Colors.black,
                               child: CarouselSlider(
                                 items: e.imageFolderLink!.map((ee) {
                                   return Container(
@@ -205,7 +205,7 @@ class _ItemshowWidgetState extends State<ItemshowWidget> {
                                     ),
                                     Container(
                                       padding: EdgeInsets.all(10),
-                                      height: getScreenHeight / 15,
+                                      // height: getScreenHeight / 2,
                                       alignment: Alignment.topLeft,
                                       child: Text(e.detail!),
                                     ),

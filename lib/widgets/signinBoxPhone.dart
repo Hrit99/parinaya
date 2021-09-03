@@ -5,6 +5,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 // import 'package:parinaya/models/appUser.dart';
 import 'package:parinaya/pages/homePage.dart';
 import 'package:parinaya/pages/landingPage.dart';
+import 'package:parinaya/pages/phoneSignin.dart';
 import 'package:parinaya/widgets/signFile.dart';
 // import 'package:parinaya/widgets/signin.dart';
 
@@ -247,6 +248,55 @@ class _SigninboxPhoneState extends State<SigninboxPhone> {
                               cpi = true;
                               dispMes = "progress";
                             });
+                          },
+                        ),
+                        InkWell(
+                          child: Container(
+                              margin: EdgeInsets.all(10),
+                              width: getScreenWidth / 2,
+                              height: getScreenHeight / 18,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black, width: 3),
+                                borderRadius: BorderRadius.circular(20),
+                                color: Theme.of(context)
+                                    .primaryColor
+                                    .withOpacity(0.7),
+                              ),
+                              child: Center(
+                                  child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: <Widget>[
+                                  Container(
+                                    height: 30.0,
+                                    width: 30.0,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: Icon(
+                                      Icons.phone,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                  Center(
+                                    child: Text(
+                                      'Sign in with Phone ',
+                                      style: TextStyle(
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black),
+                                    ),
+                                  ),
+                                ],
+                              ))),
+                          onTap: () {
+                            Navigator.of(context).push(PageRouteBuilder(
+                                transitionDuration: Duration(seconds: 1),
+                                opaque: false,
+                                pageBuilder:
+                                    (context, animation, secondaryAnimation) =>
+                                        PhoneSignin()));
                           },
                         ),
                       ],

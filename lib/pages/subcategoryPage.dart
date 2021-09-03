@@ -166,7 +166,7 @@ class _SubcategoryPageState extends State<SubcategoryPage> {
                           height: getScreenHeight / 1.5,
                           width: getScreenWidth,
                           child: Center(
-                            child: Text("No Collections"),
+                            child: SubcatBox(),
                           ));
                     }
                   } else {
