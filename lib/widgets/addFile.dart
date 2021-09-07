@@ -8,20 +8,35 @@ import 'package:parinaya/models/item.dart';
 import 'package:parinaya/models/subcategory.dart';
 
 List<XFile>? imageFiles;
+XFile? imgFile;
 
-Future<bool> addCategory(String s) async {
+Future<Map<String, dynamic>> addCategory(String s) async {
   print("jlll");
   try {
-    await FirebaseFirestore.instance.collection('/facilities').doc(s).set({});
+    await FirebaseStorage.instance
+        .ref()
+        .child('${s}/${s}-img.jpeg')
+        .putFile(File(imgFile!.path));
+    String slink = await FirebaseStorage.instance
+        .ref()
+        .child('${s}/${s}-img.jpeg')
+        .getDownloadURL();
+    await FirebaseFirestore.instance
+        .collection('/facilities')
+        .doc(s)
+        .set({'imgstr': slink});
     await FirebaseFirestore.instance
         .collection('/facilities')
         .doc(s)
         .collection('directItem')
         .doc('initc')
         .set({});
-    return Future.value(true);
+    return Future.value({'status': true, 'ilink': slink});
   } catch (e) {
-    return Future.value(false);
+    return Future.value({
+      'status': false,
+      'ilink': "",
+    });
   }
 }
 
@@ -34,8 +49,16 @@ Future<bool> delCategory(String s) async {
   }
 }
 
-Future<bool> addsubcategory(Category? c, String s) async {
+Future<Map<String, dynamic>> addsubcategory(Category? c, String s) async {
   try {
+    await FirebaseStorage.instance
+        .ref()
+        .child('${c}/${s}/${s}-img.jpeg')
+        .putFile(File(imgFile!.path));
+    String slink = await FirebaseStorage.instance
+        .ref()
+        .child('${c}/${s}/${s}-img.jpeg')
+        .getDownloadURL();
     await FirebaseFirestore.instance
         .collection('/facilities')
         .doc(c!.name)
@@ -51,21 +74,24 @@ Future<bool> addsubcategory(Category? c, String s) async {
     print("assa");
     print(value.data()!['subcollections']);
     List psc = value.data()!['subcollections'];
+    List pscimg = value.data()!['scimglink'];
     print("uuu");
     print(psc);
     if (psc == null) {
       psc = [];
+      pscimg = [];
     }
     psc.add(s);
+    pscimg.add(slink);
     print("jkkk");
     print(psc);
     await FirebaseFirestore.instance
         .collection('/facilities')
         .doc(c.name)
-        .set({'subcollections': psc});
-    return Future.value(true);
+        .update({'subcollections': psc, 'scimglink': pscimg});
+    return Future.value({'status': true, 'ilink': slink});
   } catch (e) {
-    return Future.value(false);
+    return Future.value({'status': false, 'ilink': ""});
   }
 }
 
@@ -89,11 +115,15 @@ Future<bool> delsubCategory(Category? c, String s) async {
     print("assa");
     print(value.data()!['subcollections']);
     List psc = value.data()!['subcollections'];
+    List pscimg = value.data()!['scimglink'];
     psc.remove(s);
+    pscimg.remove(c.subcategories!
+        .firstWhere((element) => (element.name == s))
+        .scimglink);
     await FirebaseFirestore.instance
         .collection('/facilities')
         .doc(c.name)
-        .set({'subcollections': psc});
+        .update({'subcollections': psc, 'scimglink': pscimg});
     return Future.value(true);
   } catch (e) {
     return Future.value(false);

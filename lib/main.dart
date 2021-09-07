@@ -49,22 +49,28 @@ class MyApp extends StatelessWidget {
                       // shadowColor: Colors.white,
                     ),
                     bottomNavigationBarTheme: BottomNavigationBarThemeData(
-                        selectedItemColor: Colors.white,
+                        backgroundColor: Colors.black.withOpacity(0.7),
+                        selectedItemColor: Color.fromARGB(255, 251, 175, 93),
                         selectedIconTheme: IconThemeData(
-                          color: Colors.white,
+                          color: Color.fromARGB(255, 251, 175, 93),
                         ),
                         unselectedIconTheme: IconThemeData(
                           color: Colors.white,
                         )),
                     inputDecorationTheme: InputDecorationTheme(
+                      // labelStyle:
+                      //     TextStyle(color: Color.fromARGB(255, 251, 175, 93)),
+                      counterStyle: TextStyle(color: Colors.white),
                       enabledBorder: UnderlineInputBorder(
-                          borderSide:
-                              BorderSide(color: Colors.white, width: 3)),
+                          borderSide: BorderSide(
+                              color: Color.fromARGB(255, 251, 175, 93),
+                              width: 1)),
                       focusedBorder: UnderlineInputBorder(
                           borderSide:
-                              BorderSide(color: Colors.white, width: 3)),
-                      hintStyle: TextStyle(
-                          color: Theme.of(context).dialogBackgroundColor),
+                              BorderSide(color: Colors.white, width: 1)),
+                      contentPadding:
+                          EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+                      hintStyle: TextStyle(color: Colors.white),
                     ),
                     appBarTheme: AppBarTheme(
                       // color: Colors.transparent,
@@ -80,21 +86,28 @@ class MyApp extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                           decorationColor: Colors.white,
+                          fontFamily: 'Abhaya_Libre',
                           fontSize: kTextTabBarHeight / 2,
                         ),
                       ),
                     ),
                     elevatedButtonTheme: ElevatedButtonThemeData(
                         style: ButtonStyle(
-                      padding: MaterialStateProperty.all(EdgeInsets.all(0)),
+                      backgroundColor: MaterialStateProperty.all(
+                          Colors.black.withOpacity(0.4)),
                       side: MaterialStateProperty.all(BorderSide(
-                          color: Colors.white,
+                          color: Color.fromARGB(255, 251, 175, 93),
                           width: 2,
                           style: BorderStyle.solid)),
+                      padding: MaterialStateProperty.all(EdgeInsets.all(10)),
+                      // side: MaterialStateProperty.all(BorderSide(
+                      //     color: Colors.white,
+                      //     width: 2,
+                      //     style: BorderStyle.solid)),
                       shadowColor:
                           MaterialStateProperty.all(Colors.transparent),
-                      backgroundColor:
-                          MaterialStateProperty.all(Colors.transparent),
+                      // backgroundColor:
+                      //     MaterialStateProperty.all(Colors.transparent),
                       // padding: MaterialStateProperty<EdgeInsetsGeometry?>,
                       alignment: Alignment.center,
                       enableFeedback: true,
@@ -102,7 +115,8 @@ class MyApp extends StatelessWidget {
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20))),
                     )),
-                    primaryColor: Colors.white,
+                    dividerColor: Color.fromARGB(255, 255, 228, 200),
+                    primaryColor: Color.fromARGB(255, 251, 175, 93),
                     accentColor: Colors.white,
                     backgroundColor: Colors.black.withOpacity(0.7),
                     dialogBackgroundColor: Colors.grey,
@@ -110,12 +124,46 @@ class MyApp extends StatelessWidget {
                       color: Colors.white,
                     ),
                     textTheme: TextTheme(
+                        bodyText1: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'Abhaya_Libre',
+                        ),
+                        caption: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'Abhaya_Libre',
+                        ),
+                        headline1: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'Abhaya_Libre',
+                        ),
+                        headline2: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'Abhaya_Libre',
+                        ),
+                        headline3: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'Abhaya_Libre',
+                        ),
+                        headline4: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'Abhaya_Libre',
+                        ),
+                        headline5: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'Abhaya_Libre',
+                        ),
+                        headline6: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'Abhaya_Libre',
+                        ),
+                        button:
+                            TextStyle(color: Color.fromARGB(255, 251, 175, 93)),
                         subtitle1: TextStyle(
                           color: Colors.white,
+                          fontFamily: 'Abhaya_Libre',
                         ),
                         bodyText2: TextStyle(
-                          color: Colors.white,
-                        ))),
+                            color: Colors.white, fontFamily: 'Abhaya_Libre'))),
                 routes: {
                   '/itemPage': (context) => ItemPage(),
                 },

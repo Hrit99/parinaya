@@ -115,6 +115,8 @@ class Subcategorypro with ChangeNotifier {
     // }
     // print(_lofCategory.firstWhere((element) => element.name == c.name).name!);
     // List<Category> l = catpro.getreallofCat;
+    print("yeewww");
+    print(sclist);
     _lofCategory
         .firstWhere((element) => element.name == c.name)
         .subcategories!

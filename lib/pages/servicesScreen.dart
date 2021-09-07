@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:parinaya/constants/screendimensions.dart';
+import 'package:parinaya/models/category.dart';
+import 'package:parinaya/providers/dataPro.dart';
+import 'package:parinaya/widgets/dropDownTile.dart';
 // import 'package:parinaya/models/ourServices.dart';
 // import 'package:parinaya/providers/listOfServices.dart';
 // import 'package:parinaya/widgets/dropDownTile.dart';
@@ -10,6 +13,10 @@ class ServicesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    CategoryPro catpro = Provider.of<CategoryPro>(context);
+    Subcategorypro subcatpro =
+        Provider.of<Subcategorypro>(context, listen: false);
+    List<Category> catl = catpro.getlofCat;
     // var servicespro = Provider.of<ListOfServices>(context, listen: false);
     // List<OurService> services = servicespro.getLocalOurServices;
     return Scaffold(
@@ -27,38 +34,26 @@ class ServicesScreen extends StatelessWidget {
       body: Container(
         height: getScreenHeight,
         width: getScreenWidth,
-        // child: ListView.builder(
-        //   itemCount: services.length,
-        //   itemBuilder: (context, index) {
-        //     return DropDownTile(
-        //       headWidget: ListTile(
-        //         title: Container(
-        //             decoration: BoxDecoration(
-        //               border: Border(
-        //                   bottom: BorderSide(
-        //                       color: Theme.of(context).primaryColor, width: 3)),
-        //             ),
-        //             alignment: Alignment.bottomLeft,
-        //             height: getScreenHeight / 15,
-        //             width: getScreenWidth / 1.2,
-        //             child: Text(services[index].service!)),
-        //       ),
-        //       listWidgets: (services[index].subServices!.length == 0)
-        //           ? []
-        //           : services[index].subServices!.map((e) {
-        //               return Container(
-        //                 padding: EdgeInsets.only(left: 10),
-        //                 alignment: Alignment.centerLeft,
-        //                 height: getScreenHeight / 15,
-        //                 width: getScreenWidth / 1.2,
-        //                 child: ListTile(
-        //                   title: Text(e.subService!),
-        //                 ),
-        //               );
-        //             }).toList(),
-        //     );
-        //   },
-        // ),
+        child: ListView.builder(
+          itemCount: catl.length,
+          itemBuilder: (context, index) {
+            return ListTile(
+              title: Container(
+                decoration: BoxDecoration(
+                  border: Border(
+                      bottom: BorderSide(
+                          color: Theme.of(context).primaryColor, width: 3)),
+                ),
+                alignment: Alignment.bottomLeft,
+                height: getScreenHeight / 15,
+                width: getScreenWidth / 1.2,
+                child: DropDownTile(
+                    l: catl[index].subcategories!.map((e) => e.name!).toList(),
+                    typ: catl[index].name),
+              ),
+            );
+          },
+        ),
       ),
     );
   }

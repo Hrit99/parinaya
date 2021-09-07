@@ -4,5 +4,7 @@ import 'package:parinaya/models/item.dart';
 class Subcategory {
   String? name;
   List<Item>? items;
-  Subcategory({@required this.name, @required this.items});
+  String? scimglink;
+  Subcategory(
+      {@required this.name, @required this.items, @required this.scimglink});
 }

@@ -70,11 +70,15 @@ class _SignUppageState extends State<SignUppage> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
-          title: Text("Sign up"),
+          title: Text(
+            "Sign up",
+            style: TextStyle(
+                fontFamily: 'Abhaya_Libre', fontWeight: FontWeight.bold),
+          ),
           bottom: PreferredSize(
               child: Container(
                 color: Theme.of(context).primaryColor,
-                height: 3,
+                height: 1,
               ),
               preferredSize: Size(getScreenWidth, getScreenWidth / 100)),
           leading: IconButton(
@@ -91,20 +95,16 @@ class _SignUppageState extends State<SignUppage> {
               left: (getScreenWidth / 2) - (getScreenWidth / 6),
               child: _keyboardVisible!
                   ? Container()
-                  : Hero(
-                      tag: "logo",
-                      child: Center(
-                        child: Container(
-                          width: getScreenWidth / 3,
-                          height: getScreenWidth / 3,
-                          decoration: BoxDecoration(
-                              color: Colors.transparent,
-                              shape: BoxShape.circle),
-                          child: Center(
-                            child: Image.asset(
-                              'assets/icons/icon.png',
-                              fit: BoxFit.fill,
-                            ),
+                  : Center(
+                      child: Container(
+                        width: getScreenWidth / 3,
+                        height: getScreenWidth / 3,
+                        decoration: BoxDecoration(
+                            color: Colors.transparent, shape: BoxShape.circle),
+                        child: Center(
+                          child: Image.asset(
+                            'assets/icons/icon.png',
+                            fit: BoxFit.fill,
                           ),
                         ),
                       ),
@@ -115,12 +115,12 @@ class _SignUppageState extends State<SignUppage> {
               curve: Curves.easeInOut,
               top: _keyboardVisible!
                   ? getScreenHeight / 20
-                  : (getScreenHeight / 15) + (getScreenWidth / 3),
+                  : (getScreenHeight / 8) + (getScreenWidth / 3),
               left: 0,
               child: Container(
                 height: getScreenHeight / 3,
                 width: getScreenWidth,
-                color: Theme.of(context).primaryColor.withOpacity(0.2),
+                color: Colors.black.withOpacity(0.3),
                 child: Center(
                     child: Container(
                   width: getScreenWidth / 1.3,

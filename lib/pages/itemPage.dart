@@ -5,6 +5,7 @@ import 'package:parinaya/models/subcategory.dart';
 import 'package:parinaya/providers/dataPro.dart';
 import 'package:parinaya/widgets/itemShowWIdget.dart';
 import 'package:provider/provider.dart';
+import 'package:parinaya/widgets/capitalize.dart';
 
 class ItemPage extends StatefulWidget {
   const ItemPage({Key? key}) : super(key: key);
@@ -40,12 +41,13 @@ class _ItemPageState extends State<ItemPage> {
       backgroundColor: Colors.transparent,
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title:
-            Text((subcatpro.getSelectedsubcat(catpro.getSelectedcat!)!).name!),
+        title: Text((subcatpro.getSelectedsubcat(catpro.getSelectedcat!)!)
+            .name!
+            .capitalize()),
         bottom: PreferredSize(
             child: Container(
               color: Theme.of(context).primaryColor,
-              height: 3,
+              height: 1,
             ),
             preferredSize: Size(getScreenWidth, getScreenWidth / 100)),
         leading: IconButton(

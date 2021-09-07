@@ -27,7 +27,7 @@ class _LogoAnimState extends State<LogoAnim> {
           });
         },
         tween: Tween(begin: begin, end: end),
-        duration: Duration(seconds: 5),
+        duration: Duration(seconds: 2),
         builder: (context, double value, child) {
           // percentage to show in Center Text
           int percentage = (value * 100).ceil();
@@ -75,8 +75,8 @@ class _LogoAnimState extends State<LogoAnim> {
                 // )
                 Center(
                   child: Container(
-                    width: size,
-                    height: size,
+                    width: size - 10,
+                    height: size - 10,
                     decoration: BoxDecoration(
                         color: Colors.transparent, shape: BoxShape.circle),
                     child: Center(

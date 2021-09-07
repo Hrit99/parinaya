@@ -31,7 +31,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void initializeFlutterFire() async {
-    await Future.delayed(Duration(seconds: 10));
+    await Future.delayed(Duration(seconds: 2));
     try {
       // Wait for Firebase to initialize and set `_initialized` state to true
 
@@ -79,8 +79,8 @@ class _SplashScreenState extends State<SplashScreen> {
                     Logo(
                       cpi: true,
                       hcenter: getScreenWidth / 2,
-                      logoHeight: getScreenWidth / 5,
-                      logoWidth: getScreenWidth / 5,
+                      logoHeight: getScreenWidth / 3,
+                      logoWidth: getScreenWidth / 3,
                       vcenter: getScreenHeight / 2,
                     ),
                   ]),

@@ -11,6 +11,8 @@ import 'package:parinaya/providers/dataPro.dart';
 import 'package:parinaya/widgets/addButton.dart';
 import 'package:parinaya/widgets/addFile.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:parinaya/widgets/capitalize.dart';
 
 class ItemshowWidget extends StatefulWidget {
   ItemshowWidget({Key? key}) : super(key: key);
@@ -95,7 +97,7 @@ class _ItemshowWidgetState extends State<ItemshowWidget> {
 
   @override
   Widget build(BuildContext context) {
-    // CarouselController crctr = new CarouselController();
+    CarouselController crctr = new CarouselController();
     int onpage = 0;
     var itempro = Provider.of<ItemPro>(context);
     print("item page");
@@ -105,6 +107,11 @@ class _ItemshowWidgetState extends State<ItemshowWidget> {
     CategoryPro catpro = Provider.of<CategoryPro>(context, listen: false);
     selectedc = catpro.getSelectedcat;
     selectedsc = subcatpro.getSelectedsubcat(selectedc);
+    List<dynamic> imgshown = [];
+    itempro
+        .getItemList(selectedc!, selectedsc!)
+        .map((e) => imgshown.addAll(e.imageFolderLink!))
+        .toList();
     return Stack(children: [
       Container(
         height: getScreenHeight,
@@ -131,91 +138,198 @@ class _ItemshowWidgetState extends State<ItemshowWidget> {
               if (snapshot.data == true) {
                 print(3);
                 return Stack(children: [
-                  CarouselSlider(
-                    // carouselController: crctr,
-                    options: CarouselOptions(
-                      aspectRatio: 16 / 9,
-                      autoPlay: false,
-                      enableInfiniteScroll: true,
-                      enlargeCenterPage: false,
-                      height: getScreenHeight,
-                      initialPage: 0,
-                      viewportFraction: 1,
-                      onPageChanged: (index, reason) {
-                        print(index);
-                        onpage = index;
-                      },
-                    ),
-                    items:
-                        itempro.getItemList(selectedc!, selectedsc!).map((e) {
-                      return Container(
-                        height: getScreenHeight,
-                        width: getScreenWidth,
-                        // color: Colors.blue,
-                        child: Column(
-                          children: [
-                            Container(
-                              height: getScreenHeight / 3,
-                              width: getScreenWidth,
-                              color: Colors.black,
-                              child: CarouselSlider(
-                                items: e.imageFolderLink!.map((ee) {
-                                  return Container(
-                                    height: getScreenHeight / 3,
-                                    width: getScreenWidth,
-                                    child: Image.network(
-                                      ee,
-                                      fit: BoxFit.fill,
-                                    ),
-                                  );
-                                }).toList(),
-                                options: CarouselOptions(
-                                  onPageChanged: (index, reason) {},
-                                  aspectRatio: 16 / 9,
-                                  autoPlay: false,
-                                  enableInfiniteScroll: true,
-                                  enlargeCenterPage: false,
-                                  height: getScreenHeight / 3,
-                                  initialPage: 0,
-                                  viewportFraction: 1,
-                                ),
-                              ),
-                              // child: Image.network(e.itemImages![0],
-                              //     fit: BoxFit.cover)),
-                            ),
-                            Container(
-                                height: getScreenHeight / 2.5,
+                  Container(
+                    height: getScreenHeight,
+                    width: getScreenWidth,
+                    // color: Colors.blue,
+                    child: Column(
+                      children: [
+                        Container(
+                          height: getScreenHeight / 3,
+                          width: getScreenWidth,
+                          color: Colors.black,
+                          child: CarouselSlider(
+                            carouselController: crctr,
+                            items: imgshown.map((ee) {
+                              return Container(
+                                height: getScreenHeight / 3,
                                 width: getScreenWidth,
-                                // color: Colors.red,
-                                // color: Colors.green,
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      // color: Colors.brown,
-                                      height: getScreenHeight / 15,
-                                      alignment: Alignment.center,
-                                      child: Text(
-                                        e.name!,
-                                        style: TextStyle(fontSize: 20),
-                                      ),
-                                    ),
-                                    Container(
-                                      color: Theme.of(context).primaryColor,
-                                      height: 3,
-                                    ),
-                                    Container(
-                                      padding: EdgeInsets.all(10),
-                                      // height: getScreenHeight / 2,
-                                      alignment: Alignment.topLeft,
-                                      child: Text(e.detail!),
-                                    ),
-                                  ],
-                                )),
-                          ],
+                                child: Image.network(
+                                  ee,
+                                  fit: BoxFit.fill,
+                                ),
+                              );
+                            }).toList(),
+                            options: CarouselOptions(
+                              autoPlayInterval: Duration(seconds: 3),
+                              onPageChanged: (index, reason) {},
+                              aspectRatio: 16 / 9,
+                              autoPlay: true,
+                              enableInfiniteScroll: true,
+                              enlargeCenterPage: false,
+                              height: getScreenHeight / 3,
+                              initialPage: 0,
+                              viewportFraction: 1,
+                            ),
+                          ),
+                          // child: Image.network(e.itemImages![0],
+                          //     fit: BoxFit.cover)),
                         ),
-                      );
-                    }).toList(),
+                        Container(
+                            height: getScreenHeight / 2.5,
+                            width: getScreenWidth,
+                            // color: Colors.red,
+                            // color: Colors.green,
+                            child: Column(
+                              children: [
+                                Container(
+                                  // color: Colors.brown,
+                                  height: getScreenHeight / 15,
+                                  alignment: Alignment.center,
+                                  child: Text(
+                                    'Items',
+                                    style: TextStyle(fontSize: 20),
+                                  ),
+                                ),
+                                Container(
+                                  color: Theme.of(context).primaryColor,
+                                  height: 1,
+                                ),
+                                Container(
+                                  padding: EdgeInsets.all(10),
+                                  height: getScreenHeight / 3.2,
+                                  width: getScreenWidth,
+                                  // color: Colors.red,
+                                  alignment: Alignment.topLeft,
+                                  child: ListView.separated(
+                                      itemBuilder: (context, index) => Slidable(
+                                          actionPane:
+                                              SlidableDrawerActionPane(),
+                                          actionExtentRatio: 0.25,
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(5),
+                                              color:
+                                                  Colors.black.withOpacity(0.5),
+                                            ),
+                                            child: GestureDetector(
+                                              onTap: () {
+                                                crctr.animateToPage(
+                                                    imgshown.indexOf(itempro
+                                                        .getItemList(selectedc!,
+                                                            selectedsc!)[index]
+                                                        .imageFolderLink![0]));
+                                              },
+                                              child: ListTile(
+                                                leading: CircleAvatar(
+                                                  backgroundColor:
+                                                      Colors.indigoAccent,
+                                                  // child: Text('$3'),
+                                                  foregroundColor: Colors.white,
+                                                  backgroundImage: NetworkImage(
+                                                      itempro
+                                                          .getItemList(
+                                                              selectedc!,
+                                                              selectedsc!)[index]
+                                                          .imageFolderLink![0]),
+                                                ),
+                                                title: Text(itempro
+                                                    .getItemList(selectedc!,
+                                                        selectedsc!)[index]
+                                                    .name!
+                                                    .capitalize()),
+                                                // subtitle: Text('SlidableDrawerDelegate'),
+                                              ),
+                                            ),
+                                          ),
+                                          // actions: <Widget>[
+                                          //   IconSlideAction(
+                                          //     caption: 'Archive',
+                                          //     color: Colors.blue,
+                                          //     icon: Icons.archive,
+                                          //     onTap: () {},
+                                          //   ),
+                                          //   // IconSlideAction(
+                                          //   //   caption: 'Share',
+                                          //   //   color: Colors.indigo,
+                                          //   //   icon: Icons.share,
+                                          //   //   onTap: () => _showSnackBar('Share'),
+                                          //   // ),
+                                          // ],
+                                          secondaryActions: (FirebaseAuth
+                                                      .instance
+                                                      .currentUser!
+                                                      .uid !=
+                                                  "Vbkg3H0EGfWmC7gCRgQVjcJwzmZ2")
+                                              ? []
+                                              : <Widget>[
+                                                  // IconSlideAction(
+                                                  //   caption: 'More',
+                                                  //   color: Colors.black45,
+                                                  //   icon: Icons.more_horiz,
+                                                  //   onTap: () => _showSnackBar('More'),
+                                                  // ),
+                                                  IconSlideAction(
+                                                    caption: 'Delete',
+                                                    color: Colors.red,
+                                                    icon: Icons.delete,
+                                                    onTap: () async {
+                                                      await delItem(
+                                                          selectedc!,
+                                                          selectedsc!,
+                                                          itempro.getItemList(
+                                                                  selectedc!,
+                                                                  selectedsc!)[
+                                                              index]);
+                                                      itempro.delItem(
+                                                          selectedc!,
+                                                          selectedsc!,
+                                                          itempro.getItemList(
+                                                                  selectedc!,
+                                                                  selectedsc!)[
+                                                              index]);
+                                                    },
+                                                  ),
+                                                ]),
+                                      separatorBuilder: (context, index) =>
+                                          Container(
+                                            margin: EdgeInsets.symmetric(
+                                                horizontal: 0, vertical: 10),
+                                            height: 1,
+                                            width: getScreenWidth,
+                                            color:
+                                                Theme.of(context).dividerColor,
+                                          ),
+                                      itemCount: itempro
+                                          .getItemList(selectedc!, selectedsc!)
+                                          .length),
+                                ),
+                              ],
+                            )),
+                      ],
+                    ),
                   ),
+                  // CarouselSlider(
+                  //   // carouselController: crctr,
+                  //   options: CarouselOptions(
+                  //     aspectRatio: 16 / 9,
+                  //     autoPlay: false,
+                  //     enableInfiniteScroll: true,
+                  //     enlargeCenterPage: false,
+                  //     height: getScreenHeight,
+                  //     initialPage: 0,
+                  //     viewportFraction: 1,
+                  //     onPageChanged: (index, reason) {
+                  //       print(index);
+                  //       onpage = index;
+                  //     },
+                  //   ),
+                  //   items:
+                  //       itempro.getItemList(selectedc!, selectedsc!).map((e) {
+                  //     return
+                  //   }).toList(),
+                  // ),
                   Positioned(
                     bottom: (getScreenHeight / 10) + 5,
                     child: Container(),
@@ -446,33 +560,20 @@ class _ItemshowWidgetState extends State<ItemshowWidget> {
           child: AddButton(
             typee: 'item',
           )),
-      AnimatedPositioned(
-          duration: Duration(milliseconds: 5),
-          curve: Curves.easeInOut,
-          bottom: MediaQuery.of(context).viewInsets.bottom + 50,
-          left: 10,
-          child: (FirebaseAuth.instance.currentUser!.uid !=
-                  "Vbkg3H0EGfWmC7gCRgQVjcJwzmZ2")
-              ? Container()
-              : FloatingActionButton(
-                  child: Icon(
-                    Icons.delete,
-                    color: Colors.grey,
-                  ),
-                  onPressed: () async {
-                    await delItem(
-                        selectedc!,
-                        selectedsc!,
-                        itempro
-                            .getItemList(selectedc!, selectedsc!)
-                            .elementAt(onpage));
-                    itempro.delItem(
-                        selectedc!,
-                        selectedsc!,
-                        itempro
-                            .getItemList(selectedc!, selectedsc!)
-                            .elementAt(onpage));
-                  }))
+      // AnimatedPositioned(
+      //     duration: Duration(milliseconds: 5),
+      //     curve: Curves.easeInOut,
+      //     bottom: MediaQuery.of(context).viewInsets.bottom + 50,
+      //     left: 10,
+      //     child: (FirebaseAuth.instance.currentUser!.uid !=
+      //             "Vbkg3H0EGfWmC7gCRgQVjcJwzmZ2")
+      //         ? Container()
+      //         : FloatingActionButton(
+      //             child: Icon(
+      //               Icons.delete,
+      //               color: Colors.grey,
+      //             ),
+      //             onPressed: () async {}))
     ]);
   }
 }

@@ -20,6 +20,7 @@ class SubcatBox extends StatelessWidget {
     // selectedsc = subcatpro.getSelectedsubcat;
     // var subcatpro = Provider.of<Subcategorypro>(context);
     print("opp");
+    print(selectedc!.subcategories!.length);
     return Container(
       height: getScreenHeight / 1.5,
       width: getScreenWidth,

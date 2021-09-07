@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:parinaya/constants/screendimensions.dart';
+import 'package:parinaya/widgets/buttons.dart';
 // import 'package:parinaya/models/UserDetailMap.dart';
 // import 'package:parinaya/models/appUser.dart';
 // import 'package:parinaya/widgets/calendarIcon.dart';
@@ -53,26 +54,39 @@ class _SignUpBoxState extends State<SignUpBox> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               ListTile(
-                title: TextField(
-                  controller: emailctr,
-                  keyboardType: TextInputType.emailAddress,
-                  // style: TextStyle(textBaseline: TextBas),
-                  cursorColor: Theme.of(context).primaryColor,
-                  style: TextStyle(color: Theme.of(context).primaryColor),
-                  decoration: InputDecoration(
-                    hintText: "Email",
+                title: Container(
+                  height: getScreenHeight / 20,
+                  child: TextField(
+                    cursorWidth: 1,
+                    // obscureText: true,
+                    // style: TextStyle(decoration: TextDecoration.none),
+                    controller: emailctr,
+                    keyboardType: TextInputType.emailAddress,
+                    // style: TextStyle(textBaseline: TextBas),
+                    cursorColor: Theme.of(context).primaryColor,
+                    // style: TextStyle(color: Theme.of(context).primaryColor),
+                    decoration: InputDecoration(
+                      contentPadding:
+                          EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+                      hintText: "Email",
+                    ),
                   ),
                 ),
               ),
               ListTile(
-                title: TextField(
-                  controller: pwctr,
-                  keyboardType: TextInputType.visiblePassword,
-                  cursorColor: Theme.of(context).primaryColor,
-                  style: TextStyle(color: Theme.of(context).primaryColor),
-                  // style: TextStyle(textBaseline: TextBas),
-                  decoration: InputDecoration(
-                    hintText: "Password",
+                title: Container(
+                  height: getScreenHeight / 20,
+                  child: TextField(
+                    cursorWidth: 1,
+                    obscureText: true,
+                    controller: pwctr,
+                    keyboardType: TextInputType.visiblePassword,
+                    cursorColor: Theme.of(context).primaryColor,
+                    // style: TextStyle(color: Theme.of(context).primaryColor),
+                    // style: TextStyle(textBaseline: TextBas),
+                    decoration: InputDecoration(
+                      hintText: "Password",
+                    ),
                   ),
                 ),
               ),
@@ -100,8 +114,24 @@ class _SignUpBoxState extends State<SignUpBox> {
 
                               Future.delayed(Duration(seconds: 4))
                                   .then((value) => Navigator.of(context).pop());
+                              showDialog(
+                                  context: context,
+                                  builder: (_) => Dialog(
+                                          child: Container(
+                                        height: getScreenHeight / 5,
+                                        width: getScreenWidth / 1.5,
+                                        alignment: Alignment.center,
+                                        color: Colors.black.withOpacity(0.6),
+                                        child: Text(value["status"],
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                                fontSize: 20,
+                                                color: Theme.of(context)
+                                                    .primaryColor)),
+                                      )));
                               setState(() {
                                 dispMes = value["status"];
+                                linkSent = false;
                               });
                             });
                           } else {
@@ -110,11 +140,42 @@ class _SignUpBoxState extends State<SignUpBox> {
 
                             Future.delayed(Duration(seconds: 4))
                                 .then((value) => Navigator.of(context).pop());
+                            showDialog(
+                                context: context,
+                                builder: (_) => Dialog(
+                                        child: Container(
+                                      height: getScreenHeight / 5,
+                                      width: getScreenWidth / 1.5,
+                                      alignment: Alignment.center,
+                                      color: Colors.black.withOpacity(0.6),
+                                      child: Text('Some error occured',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              fontSize: 20,
+                                              color: Theme.of(context)
+                                                  .primaryColor)),
+                                    )));
                             setState(() {
                               dispMes = "some error occured";
+                              linkSent = false;
                             });
                           }
                         });
+                        showDialog(
+                            context: context,
+                            builder: (_) => Dialog(
+                                    child: Container(
+                                  height: getScreenHeight / 5,
+                                  width: getScreenWidth / 1.5,
+                                  alignment: Alignment.center,
+                                  color: Colors.black.withOpacity(0.6),
+                                  child: Text('Verification link sent',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          fontSize: 20,
+                                          color:
+                                              Theme.of(context).primaryColor)),
+                                )));
                         setState(() {
                           dispMes =
                               "Sent verification link to the email address";
@@ -123,8 +184,24 @@ class _SignUpBoxState extends State<SignUpBox> {
                       } else {
                         Future.delayed(Duration(seconds: 4))
                             .then((value) => Navigator.of(context).pop());
+                        showDialog(
+                            context: context,
+                            builder: (_) => Dialog(
+                                    child: Container(
+                                  height: getScreenHeight / 5,
+                                  width: getScreenWidth / 1.5,
+                                  alignment: Alignment.center,
+                                  color: Colors.black.withOpacity(0.6),
+                                  child: Text(value["status"],
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          fontSize: 20,
+                                          color:
+                                              Theme.of(context).primaryColor)),
+                                )));
                         setState(() {
                           dispMes = value["status"];
+                          linkSent = false;
                         });
                       }
                     });
@@ -133,7 +210,7 @@ class _SignUpBoxState extends State<SignUpBox> {
                       linkSent = true;
                     });
                   },
-                  child: Text("Done")),
+                  child: LocalButton(title: 'Done')),
             ],
           );
 

@@ -4,5 +4,9 @@ import 'package:parinaya/models/subcategory.dart';
 class Category {
   String? name;
   List<Subcategory>? subcategories;
-  Category({@required this.name, @required this.subcategories});
+  String? cimglink;
+  Category(
+      {@required this.name,
+      @required this.subcategories,
+      @required this.cimglink});
 }

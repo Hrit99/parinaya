@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:parinaya/constants/screendimensions.dart';
 import 'package:parinaya/models/colors.dart';
 import 'package:parinaya/pages/signInPage.dart';
@@ -34,33 +35,62 @@ class StartPage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         body: Stack(children: [
           Positioned(
-            top: (getScreenHeight / 2.8) - (logoHeight / 2),
-            left: 0,
+            top: 0,
             child: Container(
+              height: getScreenHeight / 2,
               width: getScreenWidth,
-              height: getScreenHeight / 1.5,
-              // color: Colors.red,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Hero(
-                    tag: "logo",
-                    child: Center(
-                      child: Container(
-                        width: getScreenWidth,
-                        height: logoHeight,
-                        decoration: BoxDecoration(
-                          color: Colors.transparent,
-                        ),
-                        child: Center(
-                          child: Image.asset(
-                            'assets/icons/startpagelogo.png',
-                            fit: BoxFit.fill,
+              decoration: BoxDecoration(
+                // color: Colors.green,
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Colors.black,
+                    Colors.transparent,
+                  ],
+                ),
+              ),
+              child: Stack(children: [
+                Positioned(
+                  top: 0,
+                  child: Container(
+                    height: getScreenHeight / 3,
+                    width: getScreenWidth,
+                    // color: Colors.green,
+                  ),
+                ),
+                Positioned(
+                    top: getScreenHeight / 3,
+                    child: Container(
+                      child: Center(
+                        child: Container(
+                          width: getScreenWidth,
+                          height: logoHeight,
+                          decoration: BoxDecoration(
+                            color: Colors.transparent,
+                          ),
+                          child: Center(
+                            child: Image.asset(
+                              'assets/icons/startpagelogo.png',
+                              fit: BoxFit.fill,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ),
+                    )),
+              ]),
+            ),
+          ),
+          Positioned(
+            top: (getScreenHeight / 2) - 40,
+            left: 0,
+            child: Container(
+              width: getScreenWidth,
+              height: getScreenHeight / 3,
+              // color: Colors.red,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
                   // SizedBox(height: getScreenHeight / 100),
                   Container(
                     height: getScreenHeight / 10,
@@ -71,13 +101,21 @@ class StartPage extends StatelessWidget {
                         //   style: TextStyle(
                         //       fontSize: 40, fontWeight: FontWeight.bold),
                         // ),
-                        Text(
-                          "Wedding Planner & Event Management Co.",
-                          style: TextStyle(
-                              fontSize: 15,
-                              fontFamily:
-                                  'assets/fonts/Abhaya_Libre/AbhayaLibre-Regular.ttf'),
-                          textAlign: TextAlign.center,
+                        Container(
+                          decoration: BoxDecoration(
+                              border: Border(
+                                  bottom: BorderSide(
+                                      color: Colors.white, width: 0.5))),
+                          child: Text(
+                            "Wedding Planner & Event Management Co.",
+                            style: TextStyle(
+                              color: Colors.white.withOpacity(0.8),
+                              // decoration: TextDecoration.,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
                         ),
                       ],
                     ),
@@ -91,36 +129,37 @@ class StartPage extends StatelessWidget {
                           children: [
                             ElevatedButton(
                               onPressed: () {
-                                Navigator.of(context).push(PageRouteBuilder(
-                                  transitionDuration: Duration(seconds: 1),
-                                  opaque: false,
-                                  pageBuilder: (context, animation,
-                                          secondaryAnimation) =>
-                                      SignInpage(),
-                                ));
+                                Navigator.of(context).push(PageTransition(
+                                    curve: Curves.easeInOut,
+                                    // duration: Duration(milliseconds: 400),
+                                    type: PageTransitionType.leftToRight,
+                                    child: SignInpage()));
                               },
-                              child: LocalButton(
-                                title: Text('Sign In'),
-                              ),
+                              child: LocalButton(title: 'Sign in'),
                             ),
                             ElevatedButton(
                               onPressed: () {
-                                Navigator.of(context).push(PageRouteBuilder(
-                                    transitionDuration: Duration(seconds: 1),
-                                    opaque: false,
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        SignUppage()));
+                                Navigator.of(context).push(PageTransition(
+                                    curve: Curves.easeInOut,
+                                    // duration: Duration(milliseconds: 400),
+                                    type: PageTransitionType.leftToRight,
+                                    child: SignUppage()));
                               },
-                              child: LocalButton(
-                                title: Text('Sign Up'),
-                              ),
+                              child: LocalButton(title: 'Signup'),
                             )
                           ])),
                 ],
               ),
             ),
           ),
+          Positioned(
+            bottom: 15,
+            child: Container(
+                height: 14,
+                width: getScreenWidth,
+                child: Center(
+                    child: Text("Developed by  ©2021,  Adolfo Tech World."))),
+          )
         ]),
       ),
     );

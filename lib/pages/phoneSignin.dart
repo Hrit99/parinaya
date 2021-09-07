@@ -66,11 +66,15 @@ class _PhoneSigninState extends State<PhoneSignin> {
           resizeToAvoidBottomInset: false,
           backgroundColor: MyColors().backgroundtouch,
           appBar: AppBar(
-            title: Text("Sign In"),
+            title: Text(
+              "Sign In",
+              style: TextStyle(
+                  fontFamily: 'Abhaya_Libre', fontWeight: FontWeight.bold),
+            ),
             bottom: PreferredSize(
                 child: Container(
                   color: Theme.of(context).primaryColor,
-                  height: 3,
+                  height: 1,
                 ),
                 preferredSize: Size(getScreenWidth, getScreenWidth / 100)),
             leading: IconButton(

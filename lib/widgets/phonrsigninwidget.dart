@@ -4,6 +4,7 @@ import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:parinaya/constants/screendimensions.dart';
 import 'package:parinaya/pages/homePage.dart';
 import 'package:parinaya/pages/landingPage.dart';
+import 'package:parinaya/widgets/buttons.dart';
 
 class PhoneSigninWidget extends StatefulWidget {
   const PhoneSigninWidget({Key? key}) : super(key: key);
@@ -35,10 +36,10 @@ class _PhoneSigninWidgetState extends State<PhoneSigninWidget> {
                             height: getScreenHeight / 10,
                             width: getScreenWidth / 1.2,
                             decoration: BoxDecoration(
-                                color: Colors.green,
+                                // color: Colors.green,
                                 border: Border.all(
                                     color: Theme.of(context).primaryColor,
-                                    width: 2),
+                                    width: 1),
                                 borderRadius: BorderRadius.circular(10)),
                             child: OtpTextField(
                               numberOfFields: 6,
@@ -123,7 +124,7 @@ class _PhoneSigninWidgetState extends State<PhoneSigninWidget> {
                               style: TextStyle(
                                   color: Theme.of(context).primaryColor),
                               decoration: InputDecoration(
-                                hintText: "Phone",
+                                hintText: "Mobile No.",
                               ),
                             ),
                           ),
@@ -135,19 +136,36 @@ class _PhoneSigninWidgetState extends State<PhoneSigninWidget> {
                             onPressed: () async {
                               print("enrr");
                               print('+91${pctr.value.text}');
-                              setState(() {
-                                cpi = true;
-                              });
-                              await verifyphone();
+                              if (pctr.value.text.length == 10) {
+                                setState(() {
+                                  cpi = true;
+                                });
+                                await verifyphone();
+                              } else {
+                                showDialog(
+                                    context: context,
+                                    builder: (_) => Dialog(
+                                            child: Container(
+                                          height: getScreenHeight / 5,
+                                          width: getScreenWidth / 1.5,
+                                          alignment: Alignment.center,
+                                          color: Colors.black.withOpacity(0.6),
+                                          child: Text(
+                                              "Please enter a valid mobile number",
+                                              textAlign: TextAlign.center,
+                                              style: TextStyle(
+                                                  fontSize: 20,
+                                                  color: Theme.of(context)
+                                                      .primaryColor)),
+                                        )));
+                                setState(() {
+                                  cpi = false;
+                                });
+                              }
                               print("uqqq");
                               print(pctr.value.text);
                             },
-                            child: Container(
-                              height: 20,
-                              width: getScreenWidth / 3,
-                              alignment: Alignment.center,
-                              child: Text("Get Code"),
-                            ))
+                            child: LocalButton(title: 'Get OTP'))
                       ],
                     )),
         ));

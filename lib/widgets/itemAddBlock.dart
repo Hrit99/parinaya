@@ -43,7 +43,7 @@ class _ItemAddBlockState extends State<ItemAddBlock> {
         height: getScreenHeight / 5,
         width: getScreenWidth / 1.4,
         decoration: BoxDecoration(
-          color: Theme.of(context).primaryColor,
+          color: Colors.white,
           borderRadius: BorderRadius.circular(20),
         ),
         child: cpi!
@@ -65,12 +65,12 @@ class _ItemAddBlockState extends State<ItemAddBlock> {
                           ListTile(
                             title: Container(
                               height: getScreenHeight / 15,
-                              decoration: BoxDecoration(
-                                // color: Colors.red,
-                                border: Border(
-                                    bottom: BorderSide(
-                                        color: Colors.grey, width: 2)),
-                              ),
+                              // decoration: BoxDecoration(
+                              //   // color: Colors.red,
+                              //   border: Border(
+                              //       bottom: BorderSide(
+                              //           color: Colors.grey, width: 2)),
+                              // ),
                               child: TextFormField(
                                 // style: TextStyle(textBaseline: TextBas),
                                 keyboardType: TextInputType.name,
@@ -86,12 +86,12 @@ class _ItemAddBlockState extends State<ItemAddBlock> {
                           ),
                           Container(
                             padding: EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                              // color: Colors.red,
-                              border: Border(
-                                  bottom:
-                                      BorderSide(color: Colors.grey, width: 2)),
-                            ),
+                            // decoration: BoxDecoration(
+                            //   // color: Colors.red,
+                            //   border: Border(
+                            //       bottom:
+                            //           BorderSide(color: Colors.grey, width: 2)),
+                            // ),
                             child: SingleChildScrollView(
                               scrollDirection: Axis.vertical,
                               reverse: true,
@@ -112,14 +112,17 @@ class _ItemAddBlockState extends State<ItemAddBlock> {
                             ),
                           ),
                           Container(
-                              height: getScreenHeight / 10,
+                              height: getScreenHeight / 7,
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Text("Upload Images",
                                       style: TextStyle(color: Colors.grey)),
-                                  ImgUploadWidget(),
+                                  ImgUploadWidget(
+                                    single: false,
+                                    wid: 0,
+                                  ),
                                 ],
                               )),
                           Container(
@@ -149,6 +152,9 @@ class _ItemAddBlockState extends State<ItemAddBlock> {
                                             detail: idetailsctr.value.text,
                                             imageFolderLink:
                                                 (value.isEmpty) ? [] : value));
+                                    setState(() {
+                                      cpi = false;
+                                    });
                                   });
                                   setState(() {
                                     cpi = true;

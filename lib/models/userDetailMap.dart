@@ -5,4 +5,5 @@ Map<String, dynamic> userDetailMap = {
   'location': locations[0],
   "date": DateTime.now(),
   "name": " ",
+  "profilepic": ""
 };

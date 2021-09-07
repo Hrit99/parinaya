@@ -66,11 +66,15 @@ class _SignInpageState extends State<SignInpage> {
           resizeToAvoidBottomInset: false,
           backgroundColor: MyColors().backgroundtouch,
           appBar: AppBar(
-            title: Text("Sign In"),
+            title: Text(
+              "Sign In",
+              style: TextStyle(
+                  fontFamily: 'Abhaya_Libre', fontWeight: FontWeight.bold),
+            ),
             bottom: PreferredSize(
                 child: Container(
                   color: Theme.of(context).primaryColor,
-                  height: 3,
+                  height: 1,
                 ),
                 preferredSize: Size(getScreenWidth, getScreenWidth / 100)),
             leading: IconButton(
@@ -112,8 +116,9 @@ class _SignInpageState extends State<SignInpage> {
                   ? getScreenHeight / 20
                   : (getScreenHeight / 10) + (getScreenWidth / 3),
               child: Container(
-                height: getScreenHeight / 2,
+                height: getScreenHeight / 1.8,
                 width: getScreenWidth,
+                color: Colors.black.withOpacity(0.3),
                 child: LayoutBuilder(
                   builder: (context, constraints) {
                     // print("1 ${constraints.hasBoundedHeight}");

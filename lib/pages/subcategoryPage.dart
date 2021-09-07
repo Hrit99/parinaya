@@ -9,6 +9,7 @@ import 'package:parinaya/widgets/addButton.dart';
 import 'package:parinaya/widgets/subcatBox.dart';
 import 'package:parinaya/widgets/subcategoryblock.dart';
 import 'package:provider/provider.dart';
+import 'package:parinaya/widgets/capitalize.dart';
 
 class SubcategoryPage extends StatefulWidget {
   // final Category? c;
@@ -22,6 +23,7 @@ class _SubcategoryPageState extends State<SubcategoryPage> {
   Category? selectedc;
   // Subcategory? selectedsc;
   List<String> sc = [];
+  List<String> scl = [];
   bool? scexist = false;
   bool? cpi = true;
   @override
@@ -58,18 +60,26 @@ class _SubcategoryPageState extends State<SubcategoryPage> {
   }
 
   Future<bool> checkifsubcategories(Subcategorypro subcatpro) async {
+    print("dddddss");
+    print("dss ${subcatpro.getsubcat(selectedc!).isNotEmpty}");
     if (subcatpro.getsubcat(selectedc!).isNotEmpty) {
       return Future.value(true);
     } else {
+      print('tt ${selectedc!.name}');
       DocumentSnapshot<Map<String, dynamic>> value = await FirebaseFirestore
           .instance
           .collection('/facilities')
           .doc(selectedc!.name)
           .get();
-
+      print("iddss");
+      print(value.data());
       if (value.data() != null) {
-        if (value.data()!.isNotEmpty) {
+        if (value.data()!.containsKey('subcollections')) {
           sc = List.from(value.data()!['subcollections']);
+          scl = List.from(value.data()!['scimglink']);
+          print(scl[0]);
+          print("sdsds");
+          print(sc);
           // print("h");
           // print(sc);
           if (sc.isEmpty) {
@@ -77,18 +87,26 @@ class _SubcategoryPageState extends State<SubcategoryPage> {
             return Future.value(false);
           } else {
             print("collectionss");
-            subcatpro.lofsubcat(selectedc!,
-                sc.map((e) => new Subcategory(items: [], name: e)).toList(),
-                notify: false);
+            List<Subcategory> slist = sc.map((e) {
+              print("jjjjjjj");
+              print(scl[sc.indexOf(e)]);
+              return new Subcategory(
+                  scimglink: scl[sc.indexOf(e)], items: [], name: e);
+            }).toList();
+            print(slist);
+            subcatpro.lofsubcat(selectedc!, slist, notify: false);
+            print(selectedc!.subcategories![0].scimglink);
             // subcatpro.getsubcat(selectedc!).forEach((element) {
             //   print(element.name);
             // });
             return Future.value(true);
           }
         } else {
+          print("udid");
           return Future.value(false);
         }
       } else {
+        print("hhjj");
         return Future.value(false);
       }
     }
@@ -107,11 +125,11 @@ class _SubcategoryPageState extends State<SubcategoryPage> {
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.transparent,
         appBar: AppBar(
-          title: Text(selectedc!.name!),
+          title: Text(selectedc!.name!.capitalize()),
           bottom: PreferredSize(
               child: Container(
                 color: Theme.of(context).primaryColor,
-                height: 3,
+                height: 1,
               ),
               preferredSize: Size(getScreenWidth, getScreenWidth / 100)),
           leading: IconButton(
@@ -138,10 +156,10 @@ class _SubcategoryPageState extends State<SubcategoryPage> {
             child: Stack(children: [
               Positioned(
                 top: getScreenHeight / 9,
-                left: ((getScreenWidth / 2) - (getScreenWidth / 2.4)),
+                left: ((getScreenWidth / 2) - (getScreenWidth / 6)),
                 child: Container(
-                  height: getScreenHeight / 5,
-                  width: getScreenWidth / 1.2,
+                  height: getScreenWidth / 3,
+                  width: getScreenWidth / 3,
                   // color: Colors.blue,
                   child: Center(
                     child: Image.asset('assets/icons/icon.png'),
@@ -153,6 +171,7 @@ class _SubcategoryPageState extends State<SubcategoryPage> {
           Positioned(
             bottom: getScreenHeight / 40,
             child: Container(
+              // color: Colors.red,
               height: getScreenHeight / 2,
               width: getScreenWidth,
               child: FutureBuilder(
@@ -160,6 +179,8 @@ class _SubcategoryPageState extends State<SubcategoryPage> {
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
                     if (snapshot.data == true) {
+                      print("ooooooo");
+                      print(selectedc!.subcategories![0].scimglink);
                       return SubcatBox();
                     } else {
                       return Container(

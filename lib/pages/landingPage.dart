@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:parinaya/constants/screendimensions.dart';
 import 'package:parinaya/models/colors.dart';
 import 'package:parinaya/models/initDataSet.dart';
+import 'package:parinaya/models/userDetail.dart';
 import 'package:parinaya/pages/detailsPage.dart';
 import 'package:parinaya/pages/homePage.dart';
 import 'package:parinaya/pages/startPage.dart';
@@ -46,6 +47,12 @@ class _LandingPageState extends State<LandingPage> {
                         DetailsPage()),
                 (Route<dynamic> route) => false);
           } else {
+            uname = value['name'];
+            ulocation = value['location'];
+            ueventType = value['event'];
+            upplink = value['profilepic'];
+            udate = (value['date'] as Timestamp).toDate();
+            print(udate);
             print("go to homepage");
             Navigator.of(context).pushAndRemoveUntil(
                 PageRouteBuilder(

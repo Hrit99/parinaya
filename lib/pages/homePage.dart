@@ -66,7 +66,10 @@ class _HomePageState extends State<HomePage> {
           .get()
           .then((value) {
         catpro.setlofCat = value.docs
-            .map((e) => new Category(subcategories: [], name: e.id.toString()))
+            .map((e) => new Category(
+                subcategories: [],
+                name: e.id.toString(),
+                cimglink: e['imgstr']))
             .toList();
       });
       print("uppp");
@@ -82,66 +85,60 @@ class _HomePageState extends State<HomePage> {
     // cttx = context;
     print("hp");
     // var locationpro = Provider.of<LocationPro>(context);
-    List<Widget> _screens = [
-      HomeScreen(),
-      ServicesScreen(),
-      GalleryScreen(),
-      UserScreen()
-    ];
+    List<Widget> _screens = [HomeScreen(), GalleryScreen(), UserScreen()];
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         body: Stack(
-      children: [
-        Container(
-          height: getScreenHeight,
-          width: getScreenWidth,
-          child: Image.asset(
-            'assets/images/background.jpg',
-            fit: BoxFit.fill,
-          ),
-        ),
-        FutureBuilder(
-            future: fetchServAndSubServ(),
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                if (snapshot.data == true) {
-                  return Scaffold(
-                    backgroundColor: MyColors().backgroundtouch,
-                    body: _screens[_selectedPage],
-                    bottomNavigationBar: BottomNavigationBar(
-                      items: [
-                        BottomNavigationBarItem(
-                            icon: Icon(Icons.home),
-                            label: "Home",
-                            backgroundColor: Colors.transparent),
-                        BottomNavigationBarItem(
-                            icon: Icon(Icons.room_service),
-                            label: "Services",
-                            backgroundColor: Colors.transparent),
-                        BottomNavigationBarItem(
-                            icon: Icon(Icons.photo_library),
-                            label: "Gallery",
-                            backgroundColor: Colors.transparent),
-                        BottomNavigationBarItem(
-                            icon: Icon(Icons.account_circle_rounded),
-                            label: "User",
-                            backgroundColor: Colors.transparent),
-                      ],
-                      currentIndex: _selectedPage,
-                      onTap: (index) {
-                        setState(() {
-                          _selectedPage = index;
-                        });
-                      },
-                    ),
-                  );
-                } else {
-                  return Center(child: CircularProgressIndicator());
-                }
-              } else {
-                return Center(child: CircularProgressIndicator());
-              }
-            })
-      ],
-    ));
+          children: [
+            Container(
+              height: getScreenHeight,
+              width: getScreenWidth,
+              // color: Colors.black,
+              child: Image.asset(
+                'assets/images/background.jpg',
+                fit: BoxFit.fill,
+              ),
+            ),
+            FutureBuilder(
+                future: fetchServAndSubServ(),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    if (snapshot.data == true) {
+                      print(_screens.length);
+                      return Scaffold(
+                        backgroundColor: MyColors().backgroundtouch,
+                        body: _screens[_selectedPage],
+                        bottomNavigationBar: BottomNavigationBar(
+                          items: [
+                            BottomNavigationBarItem(
+                                icon: Icon(Icons.home),
+                                label: "Home",
+                                backgroundColor: Colors.transparent),
+                            BottomNavigationBarItem(
+                                icon: Icon(Icons.photo_library),
+                                label: "Gallery",
+                                backgroundColor: Colors.transparent),
+                            BottomNavigationBarItem(
+                                icon: Icon(Icons.account_circle_rounded),
+                                label: "User",
+                                backgroundColor: Colors.transparent),
+                          ],
+                          currentIndex: _selectedPage,
+                          onTap: (index) {
+                            setState(() {
+                              _selectedPage = index;
+                            });
+                          },
+                        ),
+                      );
+                    } else {
+                      return Center(child: CircularProgressIndicator());
+                    }
+                  } else {
+                    return Center(child: CircularProgressIndicator());
+                  }
+                })
+          ],
+        ));
   }
 }
