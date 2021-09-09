@@ -4,6 +4,7 @@ import 'package:parinaya/models/category.dart';
 import 'package:parinaya/models/userDetail.dart';
 import 'package:parinaya/providers/dataPro.dart';
 import 'package:provider/provider.dart';
+import 'package:parinaya/widgets/capitalize.dart';
 
 class DropDownTile extends StatefulWidget {
   final List<String>? l;
@@ -45,7 +46,7 @@ class _DropDownTileState extends State<DropDownTile> {
           // color: Colors.red,
           border: Border(
               bottom:
-                  BorderSide(color: Theme.of(context).primaryColor, width: 2))),
+                  BorderSide(color: Theme.of(context).primaryColor, width: 1))),
       child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -60,7 +61,7 @@ class _DropDownTileState extends State<DropDownTile> {
                 child: Container(
                     alignment: Alignment.centerLeft,
                     height: getScreenHeight / 20,
-                    child: Text(showwid!))),
+                    child: Text(showwid!.capitalize()))),
             Container(
               child: Column(
                 children: (extend!)
@@ -85,7 +86,7 @@ class _DropDownTileState extends State<DropDownTile> {
                                 alignment: Alignment.centerLeft,
                                 height: getScreenHeight / 20,
                                 child: Text(
-                                  e,
+                                  e.capitalize(),
                                   style: TextStyle(
                                       color: Theme.of(context).primaryColor),
                                 )),

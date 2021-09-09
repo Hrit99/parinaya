@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -154,10 +155,17 @@ class _ItemshowWidgetState extends State<ItemshowWidget> {
                               return Container(
                                 height: getScreenHeight / 3,
                                 width: getScreenWidth,
-                                child: Image.network(
-                                  ee,
-                                  fit: BoxFit.fill,
+                                child: CachedNetworkImage(
+                                  fit: BoxFit.cover,
+                                  imageUrl: ee,
+                                  placeholder: (context, url) => Container(),
+                                  errorWidget: (context, url, error) =>
+                                      Container(),
                                 ),
+                                // child: Image.network(
+                                //   ee,
+                                //   fit: BoxFit.fill,
+                                // ),
                               );
                             }).toList(),
                             options: CarouselOptions(
@@ -227,12 +235,18 @@ class _ItemshowWidgetState extends State<ItemshowWidget> {
                                                       Colors.indigoAccent,
                                                   // child: Text('$3'),
                                                   foregroundColor: Colors.white,
-                                                  backgroundImage: NetworkImage(
-                                                      itempro
+                                                  backgroundImage:
+                                                      CachedNetworkImageProvider(itempro
                                                           .getItemList(
                                                               selectedc!,
                                                               selectedsc!)[index]
                                                           .imageFolderLink![0]),
+                                                  // NetworkImage(
+                                                  // itempro
+                                                  //     .getItemList(
+                                                  //         selectedc!,
+                                                  //         selectedsc!)[index]
+                                                  //     .imageFolderLink![0]),
                                                 ),
                                                 title: Text(itempro
                                                     .getItemList(selectedc!,
@@ -565,8 +579,8 @@ class _ItemshowWidgetState extends State<ItemshowWidget> {
       //     curve: Curves.easeInOut,
       //     bottom: MediaQuery.of(context).viewInsets.bottom + 50,
       //     left: 10,
-      //     child: (FirebaseAuth.instance.currentUser!.uid !=
-      //             "Vbkg3H0EGfWmC7gCRgQVjcJwzmZ2")
+      // child: (FirebaseAuth.instance.currentUser!.uid !=
+      //         "Vbkg3H0EGfWmC7gCRgQVjcJwzmZ2")
       //         ? Container()
       //         : FloatingActionButton(
       //             child: Icon(

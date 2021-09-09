@@ -145,7 +145,7 @@ class StartPage extends StatelessWidget {
                                     type: PageTransitionType.leftToRight,
                                     child: SignUppage()));
                               },
-                              child: LocalButton(title: 'Signup'),
+                              child: LocalButton(title: 'Sign up'),
                             )
                           ])),
                 ],

@@ -13,6 +13,7 @@ import 'package:parinaya/widgets/imageUploadWidget.dart';
 import 'package:parinaya/widgets/itemAddBlock.dart';
 import 'package:provider/provider.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 
 class AddButton extends StatefulWidget {
   final String? typee;
@@ -100,9 +101,10 @@ class _AddButtonState extends State<AddButton> {
                                           print(value);
                                           if (value['status']) {
                                             catpro.addtoCat = Category(
-                                                cimglink: value['ilink'],
-                                                name: n,
-                                                subcategories: []);
+                                              cimglink: value['ilink'],
+                                              name: n,
+                                              subcategories: [],
+                                            );
                                           }
                                         });
                                       }

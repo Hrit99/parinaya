@@ -3,6 +3,7 @@ import 'package:parinaya/models/userDetailMap.dart';
 import 'package:parinaya/providers/dataPro.dart';
 import 'package:parinaya/widgets/selectionButton.dart';
 import 'package:provider/provider.dart';
+import 'package:parinaya/widgets/capitalize.dart';
 
 class LocationButton extends StatelessWidget {
   final String? s;
@@ -15,7 +16,7 @@ class LocationButton extends StatelessWidget {
       col: (userDetailMap['location'] == s)
           ? Theme.of(context).primaryColor
           : Colors.transparent,
-      s: s,
+      s: s!.capitalize(),
     );
   }
 }

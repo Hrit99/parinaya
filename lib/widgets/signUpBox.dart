@@ -85,7 +85,7 @@ class _SignUpBoxState extends State<SignUpBox> {
                     // style: TextStyle(color: Theme.of(context).primaryColor),
                     // style: TextStyle(textBaseline: TextBas),
                     decoration: InputDecoration(
-                      hintText: "Password",
+                      hintText: "New Password",
                     ),
                   ),
                 ),
@@ -169,7 +169,8 @@ class _SignUpBoxState extends State<SignUpBox> {
                                   width: getScreenWidth / 1.5,
                                   alignment: Alignment.center,
                                   color: Colors.black.withOpacity(0.6),
-                                  child: Text('Verification link sent',
+                                  child: Text(
+                                      'Verification link sent to your mail \n Please wait...',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                           fontSize: 20,
@@ -177,8 +178,7 @@ class _SignUpBoxState extends State<SignUpBox> {
                                               Theme.of(context).primaryColor)),
                                 )));
                         setState(() {
-                          dispMes =
-                              "Sent verification link to the email address";
+                          dispMes = " ";
                           linkSent = true;
                         });
                       } else {

@@ -154,16 +154,16 @@ class _LandingPageState extends State<LandingPage> {
                       height: getScreenHeight / 20,
                       width: getScreenHeight / 20,
                       child: CircularProgressIndicator()),
-                  Container(
-                    height: getScreenHeight / 20,
-                    width: getScreenWidth / 2,
-                    // color: Colors.green,
-                    child: Center(
-                        child: Text(
-                      dispMes!,
-                      textAlign: TextAlign.center,
-                    )),
-                  ),
+                  // Container(
+                  //   height: getScreenHeight / 20,
+                  //   width: getScreenWidth / 2,
+                  //   // color: Colors.green,
+                  //   child: Center(
+                  //       child: Text(
+                  //     dispMes!,
+                  //     textAlign: TextAlign.center,
+                  //   )),
+                  // ),
                   // Text(dispMes!)
                 ]),
           ),

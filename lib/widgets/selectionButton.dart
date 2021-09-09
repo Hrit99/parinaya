@@ -22,6 +22,7 @@ class SelectionButton extends StatelessWidget {
         child: Text(
           s!,
           style: TextStyle(
+              fontWeight: FontWeight.bold,
               color: (col == Theme.of(context).primaryColor)
                   ? Colors.black
                   : Colors.white),

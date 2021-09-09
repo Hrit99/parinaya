@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:parinaya/constants/screendimensions.dart';
 import 'package:parinaya/models/category.dart';
@@ -6,6 +8,8 @@ import 'package:parinaya/providers/dataPro.dart';
 import 'package:parinaya/widgets/addFile.dart';
 import 'package:provider/provider.dart';
 import "package:parinaya/widgets/capitalize.dart";
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 
 class CategoryBlock extends StatefulWidget {
   final Category? e;
@@ -83,7 +87,7 @@ class _CategoryBlockState extends State<CategoryBlock> {
               child: Container(
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Colors.black,
                     boxShadow: shd!
                         ? [
                             BoxShadow(
@@ -106,9 +110,11 @@ class _CategoryBlockState extends State<CategoryBlock> {
                       width: getScreenHeight / 8,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(17),
-                        child: Image.network(
-                          widget.e!.cimglink!,
+                        child: CachedNetworkImage(
                           fit: BoxFit.cover,
+                          imageUrl: widget.e!.cimglink!,
+                          placeholder: (context, url) => Container(),
+                          errorWidget: (context, url, error) => Container(),
                         ),
                       ),
                     ),

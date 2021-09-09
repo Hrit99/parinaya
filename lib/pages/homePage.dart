@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +16,7 @@ import 'package:parinaya/pages/userScreen.dart';
 import 'package:parinaya/providers/dataPro.dart';
 // import 'package:parinaya/providers/locationProvider.dart';
 import 'package:parinaya/widgets/emailVerificationCheck.dart';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
@@ -65,12 +68,15 @@ class _HomePageState extends State<HomePage> {
           .collection('/facilities')
           .get()
           .then((value) {
-        catpro.setlofCat = value.docs
-            .map((e) => new Category(
-                subcategories: [],
-                name: e.id.toString(),
-                cimglink: e['imgstr']))
-            .toList();
+        catpro.setlofCat = value.docs.map((e) {
+          // File file = await DefaultCacheManager().getSingleFile(e['imgstr']);
+
+          return new Category(
+            subcategories: [],
+            name: e.id.toString(),
+            cimglink: e['imgstr'],
+          );
+        }).toList();
       });
       print("uppp");
       return Future.value(true);

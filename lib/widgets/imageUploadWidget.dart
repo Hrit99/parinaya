@@ -40,32 +40,64 @@ class _ImgUploadWidgetState extends State<ImgUploadWidget> {
         children: [
           (widget.single!)
               ? Container(
-                  width: widget.wid! - 10,
-                  height: widget.wid! - 10,
+                  width: widget.wid!,
+                  height: widget.wid!,
                   decoration:
                       BoxDecoration(shape: BoxShape.circle, color: Colors.grey),
-                  child: (imgFile != null)
-                      ? ClipRRect(
-                          borderRadius: BorderRadius.circular(50),
-                          child: Image.file(
-                            File(imgFile!.path),
-                            fit: BoxFit.cover,
-                          ),
-                        )
-                      : Container())
+                  child: Stack(children: [
+                    (imgFile != null)
+                        ? Container(
+                            width: widget.wid!,
+                            height: widget.wid!,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle, color: Colors.grey),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(50),
+                              child: Image.file(
+                                File(imgFile!.path),
+                                fit: BoxFit.cover,
+                              ),
+                            ))
+                        : Container(),
+                    Container(
+                      width: widget.wid!,
+                      height: widget.wid!,
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.black.withOpacity(0.5)),
+                      child: Center(
+                        child: IconButton(
+                            icon: Icon(Icons.upload_rounded,
+                                color: uploaded!
+                                    ? Theme.of(context).primaryColor
+                                    : Colors.white),
+                            onPressed: () {
+                              _takePicture().then((value) {
+                                if (value) {
+                                  setState(() {
+                                    uploaded = true;
+                                  });
+                                }
+                              });
+                            }),
+                      ),
+                    )
+                  ]))
               : Container(),
-          IconButton(
-              icon: Icon(Icons.upload_rounded,
-                  color: uploaded! ? Colors.green : Colors.grey),
-              onPressed: () {
-                _takePicture().then((value) {
-                  if (value) {
-                    setState(() {
-                      uploaded = true;
+          (widget.single!)
+              ? Container()
+              : IconButton(
+                  icon: Icon(Icons.upload_rounded,
+                      color: uploaded! ? Colors.green : Colors.grey),
+                  onPressed: () {
+                    _takePicture().then((value) {
+                      if (value) {
+                        setState(() {
+                          uploaded = true;
+                        });
+                      }
                     });
-                  }
-                });
-              }),
+                  }),
         ],
       ),
     );

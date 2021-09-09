@@ -70,7 +70,9 @@ class MyApp extends StatelessWidget {
                               BorderSide(color: Colors.white, width: 1)),
                       contentPadding:
                           EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-                      hintStyle: TextStyle(color: Colors.white),
+                      hintStyle: TextStyle(
+                        color: Colors.white.withOpacity(0.6),
+                      ),
                     ),
                     appBarTheme: AppBarTheme(
                       // color: Colors.transparent,

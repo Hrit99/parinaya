@@ -74,13 +74,15 @@ class _SigninboxPhoneState extends State<SigninboxPhone> {
               ? Center(
                   child: (dispMes == "progress")
                       ? Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
+                              SizedBox(
+                                height: (getScreenHeight / 2) -
+                                    ((getScreenHeight / 10) +
+                                        (getScreenWidth / 3)) -
+                                    getScreenHeight / 10,
+                              ),
                               CircularProgressIndicator(),
-                              Text(
-                                dispMes!,
-                                style: TextStyle(fontSize: 20),
-                              )
                             ])
                       : Text(
                           dispMes!,

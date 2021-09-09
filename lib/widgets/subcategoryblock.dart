@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:parinaya/constants/screendimensions.dart';
 import 'package:parinaya/models/category.dart';
@@ -79,7 +80,7 @@ class _SubcategoryBlockState extends State<SubcategoryBlock> {
               child: Container(
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Colors.black,
                     boxShadow: shd!
                         ? [
                             BoxShadow(
@@ -102,10 +103,16 @@ class _SubcategoryBlockState extends State<SubcategoryBlock> {
                       width: getScreenHeight / 8,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(17),
-                        child: Image.network(
-                          widget.e!.scimglink!,
+                        child: CachedNetworkImage(
                           fit: BoxFit.cover,
+                          imageUrl: widget.e!.scimglink!,
+                          placeholder: (context, url) => Container(),
+                          errorWidget: (context, url, error) => Container(),
                         ),
+                        // child: Image.network(
+                        //   widget.e!.scimglink!,
+                        //   fit: BoxFit.cover,
+                        // ),
                       ),
                     ),
                     Center(

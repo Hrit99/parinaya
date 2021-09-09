@@ -7,6 +7,7 @@ import 'package:parinaya/models/category.dart';
 // Subcategory? selectedsc;
 // Category? selectedc;
 List<Category> _lofCategory = [];
+List<String> galleryImgs = [];
 
 class EventPro with ChangeNotifier {
   set setEvent(String s) {
