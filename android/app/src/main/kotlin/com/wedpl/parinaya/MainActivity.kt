@@ -1,4 +1,4 @@
-package com.example.parinaya
+package com.wedpl.parinaya
 
 import io.flutter.embedding.android.FlutterActivity
 

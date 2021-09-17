@@ -1,23 +1,32 @@
 {
   "project_info": {
     "project_number": "673364099178",
+    "firebase_url": "https://parinaya-a8548-default-rtdb.firebaseio.com",
     "project_id": "parinaya-a8548",
     "storage_bucket": "parinaya-a8548.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:673364099178:android:987ee5873fdf2888b4ca13",
+        "mobilesdk_app_id": "1:673364099178:android:398f617fb914be3db4ca13",
         "android_client_info": {
-          "package_name": "com.example.parinaya"
+          "package_name": "com.wedpl.parinaya"
         }
       },
       "oauth_client": [
         {
-          "client_id": "673364099178-gfsagu7fmclddig6vgj5t1eu7cnj4hfj.apps.googleusercontent.com",
+          "client_id": "673364099178-246brnut23k679ocgf3bsu07jjchs2c9.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.parinaya",
+            "package_name": "com.wedpl.parinaya",
+            "certificate_hash": "785d5be433ff4ab74cdba6dd76f9dd3034fc42c8"
+          }
+        },
+        {
+          "client_id": "673364099178-5e3bodf3p94tgef2erubiku0uhgc3pve.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.wedpl.parinaya",
             "certificate_hash": "4a94445051bde0e94221818a238d88354f99840e"
           }
         },
