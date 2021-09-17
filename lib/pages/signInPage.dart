@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:parinaya/constants/screendimensions.dart';
 import 'package:parinaya/models/colors.dart';
-import 'package:parinaya/pages/startPage.dart';
+
 import 'package:parinaya/widgets/signinBoxPhone.dart';
 
 class SignInpage extends StatefulWidget {
@@ -121,17 +121,6 @@ class _SignInpageState extends State<SignInpage> {
                 color: Colors.black.withOpacity(0.3),
                 child: LayoutBuilder(
                   builder: (context, constraints) {
-                    // print("1 ${constraints.hasBoundedHeight}");
-                    // print("2 ${constraints.hasBoundedWidth}");
-                    // print("3 ${constraints.hasInfiniteHeight}");
-                    // print("4 ${constraints.hasInfiniteWidth}");
-                    // print(constraints.hasTightHeight);
-                    // print(constraints.hasTightWidth);
-                    // print(constraints.maxHeight);
-                    // print(constraints.maxWidth);
-                    // print(constraints.minHeight);
-                    // print(constraints.minWidth);
-                    // print(constraints.isTight);
                     if (constraints.maxWidth > 500)
                       return SigninboxPhone(
                         isPhone: false,

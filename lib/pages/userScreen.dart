@@ -5,19 +5,19 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
+
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:parinaya/constants/screendimensions.dart';
 import 'package:parinaya/models/initDataSet.dart';
 import 'package:parinaya/models/userDetail.dart';
-import 'package:parinaya/models/userDetailMap.dart';
+
 import 'package:parinaya/pages/startPage.dart';
 import 'package:parinaya/widgets/addFile.dart';
 import 'package:parinaya/widgets/buttons.dart';
 import 'package:parinaya/widgets/dropDownTile.dart';
 import 'package:intl/intl.dart';
-import 'package:parinaya/widgets/imageUploadWidget.dart';
+
 import 'package:parinaya/widgets/capitalize.dart';
 
 class UserScreen extends StatefulWidget {
@@ -56,12 +56,6 @@ class _UserScreenState extends State<UserScreen> {
               height: 1,
             ),
             preferredSize: Size(getScreenWidth, getScreenWidth / 100)),
-        // leading: IconButton(
-        //   icon: Icon(Icons.arrow_back),
-        //   onPressed: () {
-        //     Navigator.of(context).pop();
-        //   },
-        // ),
       ),
       body: Stack(children: [
         Positioned(
@@ -158,32 +152,6 @@ class _UserScreenState extends State<UserScreen> {
                                 ),
                                 DropDownTile(l: events, typ: 'events'),
                                 DropDownTile(l: locations, typ: 'locations'),
-                                // ListTile(
-                                //   title: TextField(
-                                //     controller: ectr,
-                                //     keyboardType: TextInputType.emailAddress,
-                                //     // style: TextStyle(textBaseline: TextBas),
-                                //     cursorColor: Theme.of(context).primaryColor,
-                                //     style:
-                                //         TextStyle(color: Theme.of(context).primaryColor),
-                                //     decoration: InputDecoration(
-                                //       hintText: "event",
-                                //     ),
-                                //   ),
-                                // ),
-                                // ListTile(
-                                //   title: TextField(
-                                //     controller: lctr,
-                                //     keyboardType: TextInputType.emailAddress,
-                                //     // style: TextStyle(textBaseline: TextBas),
-                                //     cursorColor: Theme.of(context).primaryColor,
-                                //     style:
-                                //         TextStyle(color: Theme.of(context).primaryColor),
-                                //     decoration: InputDecoration(
-                                //       hintText: "Location",
-                                //     ),
-                                //   ),
-                                // ),
                                 DropDownTile(
                                     l: [],
                                     typ: (FirebaseAuth
@@ -518,14 +486,6 @@ class _UserScreenState extends State<UserScreen> {
 
   Future<void> onchange(nctr) async {
     String idd = FirebaseAuth.instance.currentUser!.uid;
-    // await FirebaseStorage.instance
-    //     .ref()
-    //     .child('users/${idd}/profilepic/${idd}pp.jpeg')
-    //     .putFile(File(imgFile!.path));
-    // String pplink = await FirebaseStorage.instance
-    //     .ref()
-    //     .child('users/${idd}/profilepic/${idd}pp.jpeg')
-    //     .getDownloadURL();
     await FirebaseFirestore.instance.collection("users").doc("/${idd}").update({
       'name': nctr.value.text,
       'event': ueventType,

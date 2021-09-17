@@ -7,7 +7,7 @@ import 'package:parinaya/models/subcategory.dart';
 import 'package:parinaya/providers/dataPro.dart';
 import 'package:parinaya/widgets/addButton.dart';
 import 'package:parinaya/widgets/subcatBox.dart';
-import 'package:parinaya/widgets/subcategoryblock.dart';
+
 import 'package:provider/provider.dart';
 import 'package:parinaya/widgets/capitalize.dart';
 
@@ -30,33 +30,6 @@ class _SubcategoryPageState extends State<SubcategoryPage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    // subcatpro =
-    //     Provider.of<Subcategorypro>(context, listen: false)
-    // selectedsc = subcatpro.getSelectedsubcat;
-    // var subcatpro = Provider.of<Subcategorypro>(context, listen: false);
-    // var catpro = Provider.of<CategoryPro>(context, listen: false);
-    // cc = catpro.getSelectedcat!;
-
-    // checkifsubcategories().then((value) {
-    //   print(value);
-    //   if (value) {
-    //     // catpro.getlofCat
-    //     //     .where((element) => element.name == selectedc!.name)
-    //     //     .first
-    //     //     .subcategories = sc.map((e) => new Subcategory(name: e)).toList();
-    //     cpi = false;
-    //     scexist = true;
-    //     subcatpro.lofsubcat(
-    //         cc!, sc.map((e) => new Subcategory(name: e)).toList());
-    //   } else {
-    //     setState(() {
-    //       cpi = false;
-    //       scexist = false;
-    //     });
-    //   }
-    // });
-
-    // checkifsubcategories(subcatpro, catpro);
   }
 
   Future<bool> checkifsubcategories(Subcategorypro subcatpro) async {

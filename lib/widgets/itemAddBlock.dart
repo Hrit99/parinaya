@@ -26,11 +26,6 @@ class _ItemAddBlockState extends State<ItemAddBlock> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    // Subcategorypro subcatpro =
-    //     Provider.of<Subcategorypro>(context, listen: false);
-    // CategoryPro catpro = Provider.of<CategoryPro>(context, listen: false);
-    // selectedc = catpro.getSelectedcat;
-    // selectedsc = subcatpro.getSelectedsubcat;
   }
 
   @override
@@ -65,12 +60,6 @@ class _ItemAddBlockState extends State<ItemAddBlock> {
                           ListTile(
                             title: Container(
                               height: getScreenHeight / 15,
-                              // decoration: BoxDecoration(
-                              //   // color: Colors.red,
-                              //   border: Border(
-                              //       bottom: BorderSide(
-                              //           color: Colors.grey, width: 2)),
-                              // ),
                               child: TextFormField(
                                 // style: TextStyle(textBaseline: TextBas),
                                 keyboardType: TextInputType.name,

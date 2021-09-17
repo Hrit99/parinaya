@@ -27,35 +27,6 @@ class _SigninboxPhoneState extends State<SigninboxPhone> {
     super.dispose();
   }
 
-  // Future<UserCredential> signInAnonymous() async {
-  //   UserCredential userCredential =
-  //       await FirebaseAuth.instance.signInAnonymously().then((value) {
-  //     print(value.credential!.token);
-  //     return value;
-  //   }).catchError((_) {
-  //     print("err");
-  //   });
-  //   return Future.value(userCredential);
-  // }
-  // Future<void> signInWithEmailPassword(email, pw) async {
-  //   try {
-  //     await FirebaseAuth.instance
-  //         .signInWithEmailAndPassword(
-  //       email: email,
-  //       password: pw,
-  //     )
-  //         .then((value) {
-  //       Navigator.of(context).popAndPushNamed('/homePage', arguments: value);
-  //     });
-  //   } on FirebaseAuthException catch (e) {
-  //     if (e.code == 'user-not-found') {
-  //       print('No user found for that email.');
-  //     } else if (e.code == 'wrong-password') {
-  //       print('Wrong password provided for that user.');
-  //     }
-  //   }
-  // }
-
   TextEditingController emailctr = TextEditingController();
   TextEditingController pwctr = TextEditingController();
   bool cpi = false;
@@ -157,45 +128,6 @@ class _SigninboxPhoneState extends State<SigninboxPhone> {
                                 });
                                 // Navigator.of(context).popAndPushNamed('/homePage');
                                 print("hello");
-                                // signinUser(emailctr.value.text, pwctr.value.text)
-                                //     .then((value) async {
-                                //   print("s");
-                                //   print(value);
-                                //   if (value) {
-                                //     // print(value);
-                                //     // User? user =
-                                //     //     FirebaseAuth.instance.currentUser;
-                                //     // if (user != null && !user.emailVerified) {
-                                //     //   await user.sendEmailVerification();
-                                //     // }
-                                //     // print(!user!.emailVerified);
-                                //     // while (!user!.emailVerified) {
-                                //     //   FirebaseAuth.instance.signOut();
-                                //     //   await signinUser(
-                                //     //       emailctr.value.text, pwctr.value.text);
-                                //     //   user = FirebaseAuth.instance.currentUser;
-                                //     //   print(!user!.emailVerified);
-                                //     //   await Future.delayed(Duration(seconds: 5));
-                                //     // }
-                                //     Navigator.of(context).pushAndRemoveUntil(
-                                //         PageRouteBuilder(
-                                //           transitionDuration:
-                                //               Duration(seconds: 3),
-                                //           opaque: false,
-                                //           pageBuilder: (context, animation,
-                                //                   secondaryAnimation) =>
-                                //               HomePage(),
-                                //         ),
-                                //         (Route<dynamic> route) => false);
-                                //   } else {
-                                //     setState(() {
-                                //       cpi = false;
-                                //     });
-                                //   }
-                                // });
-                                // setState(() {
-                                //   cpi = true;
-                                // });
                               },
                               child: LocalButton(title: 'Sign In')),
                         ],

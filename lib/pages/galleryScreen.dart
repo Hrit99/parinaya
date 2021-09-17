@@ -121,10 +121,6 @@ class _GalleryScreenState extends State<GalleryScreen> {
                                         errorWidget: (context, url, error) =>
                                             Container(),
                                       ),
-                                      // child: Image.network(
-                                      //   e,
-                                      //   fit: BoxFit.cover,
-                                      // )
                                     ),
                                   ),
                                 );
@@ -139,53 +135,6 @@ class _GalleryScreenState extends State<GalleryScreen> {
                   ),
                 ),
               ),
-              // Positioned(
-              //     top: (getScreenHeight / 30) + (getScreenHeight / 2.3),
-              //     child: Container(
-              //       height: getScreenHeight / 3,
-              //       width: getScreenWidth,
-              //       // color: Colors.red,
-              //       child: Column(
-              //         children: [
-              //           Container(
-              //             height: getScreenHeight / 15,
-              //             decoration: BoxDecoration(
-              //                 border: Border(
-              //                     bottom: BorderSide(
-              //                         color: Theme.of(context).primaryColor,
-              //                         width: 2))),
-              //             alignment: Alignment.center,
-              //             child: Text("About",
-              //                 style: TextStyle(
-              //                   fontWeight: FontWeight.bold,
-              //                   fontSize: 40,
-              //                 )),
-              //           )
-              //         ],
-              //       ),
-              //     ))
-              // Positioned(
-              //   top: 0,
-              //   child: Container(
-              //     height: getScreenHeight / 3,
-              //     width: getScreenWidth,
-              //     // color: Colors.blue,
-              //     child: CarouselSlider(
-              //       carouselController: ctr,
-              //       options: CarouselOptions(
-              //         aspectRatio: 16 / 9,
-              //         autoPlay: true,
-              //         enableInfiniteScroll: true,
-              //         enlargeCenterPage: true,
-              //         height: getScreenHeight / 3,
-              //         initialPage: 0,
-              //         reverse: true,
-              //         viewportFraction: 0.5,
-              //       ),
-              //       items: galleryPhotos,
-              //     ),
-              //   ),
-              // ),
             ],
           ),
         ),
@@ -220,9 +169,6 @@ class _GalleryScreenState extends State<GalleryScreen> {
       });
 
       setState(() {});
-      // QuerySnapshot<Map<String, dynamic>> docs =
-      //     await FirebaseFirestore.instance.collection('parinayaGallery').get();
-      // return docs.docs.map((e) => (e.data()['imgurl'] as String)).toList();
     } catch (e) {
       print('Some error occured');
     }
@@ -230,14 +176,6 @@ class _GalleryScreenState extends State<GalleryScreen> {
 
   Future<void> delOurImg(String s) async {
     try {
-      // await FirebaseStorage.instance
-      //     .ref()
-      //     .child('parinayaGallery/${galimg!.path}.jpeg')
-      //     .putFile(File(galimg.path));
-      // String imgurl = await FirebaseStorage.instance
-      //     .ref()
-      //     .child('parinayaGallery/${galimg.path}.jpeg')
-      //     .getDownloadURL();
       QuerySnapshot<Map<String, dynamic>> docs = await FirebaseFirestore
           .instance
           .collection('parinayaGallery')
@@ -246,9 +184,6 @@ class _GalleryScreenState extends State<GalleryScreen> {
       docs.docs[0].reference.delete();
       galleryImgs.remove(s);
       setState(() {});
-      // QuerySnapshot<Map<String, dynamic>> docs =
-      //     await FirebaseFirestore.instance.collection('parinayaGallery').get();
-      // return docs.docs.map((e) => (e.data()['imgurl'] as String)).toList();
     } catch (e) {
       print('Some error occured');
     }

@@ -134,7 +134,7 @@ class _CategoryBlockState extends State<CategoryBlock> {
                             color: Theme.of(context).primaryColor,
                             fontWeight: FontWeight.bold,
                             // backgroundColor: Colors.black.withOpacity(0.6),
-                            fontSize: 20,
+                            fontSize: 16,
                           ),
                         ),
                       ),

@@ -10,10 +10,9 @@ import 'package:parinaya/widgets/calendar.dart';
 import 'package:parinaya/widgets/eventButton.dart';
 import 'package:parinaya/widgets/imageUploadWidget.dart';
 import 'package:parinaya/widgets/locationButton.dart';
-import 'package:parinaya/widgets/selectionButton.dart';
+
 import 'package:parinaya/widgets/storeUserDetails.dart';
 import 'package:provider/provider.dart';
-import 'package:parinaya/widgets/capitalize.dart';
 
 class DetailsPage extends StatefulWidget {
   DetailsPage({Key? key}) : super(key: key);
@@ -54,27 +53,12 @@ class _DetailsPageState extends State<DetailsPage> {
                       height: 1,
                     ),
                     preferredSize: Size(getScreenWidth, getScreenWidth / 100)),
-                // leading: IconButton(
-                //   icon: Icon(Icons.arrow_back),
-                //   onPressed: () {
-                //     Navigator.of(context).pop();
-                //   },
-                // ),
               ),
               backgroundColor: Colors.transparent,
               body: Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    // Container(
-                    //   height: getScreenHeight / 10,
-                    //   alignment: Alignment.center,
-                    //   child: Text("Details",
-                    //       style: TextStyle(
-                    //         fontWeight: FontWeight.bold,
-                    //         fontSize: 40,
-                    //       )),
-                    // ),
                     SizedBox(
                       height: 30,
                     ),
@@ -223,7 +207,6 @@ class _DetailsPageState extends State<DetailsPage> {
                                                     .primaryColor,
                                                 height: 1,
                                               ),
-
                                               Container(
                                                 height: getScreenHeight / 8,
                                                 margin: EdgeInsets.symmetric(
@@ -264,7 +247,6 @@ class _DetailsPageState extends State<DetailsPage> {
                                                   wid: getScreenWidth / 5,
                                                 )),
                                               ),
-
                                               ElevatedButton(
                                                   onPressed: () async {
                                                     setState(() {
@@ -332,66 +314,6 @@ class _DetailsPageState extends State<DetailsPage> {
                                                   child: LocalButton(
                                                     title: 'Done',
                                                   ))
-                                              // WhoIsUserTab(),
-                                              // CalendarIcon(),
-                                              // ListTile(
-                                              //   // title: InputDatePickerFormField(
-                                              //   //   // style: TextStyle(textBaseline: TextBas),
-                                              //   //   // cursorColor: Theme.of(context).primaryColor,
-                                              //   //   // keyboardType: TextInputType.datetime,
-                                              //   //   // style: TextStyle(
-                                              //   //   //     color: Theme.of(context).primaryColor),
-                                              //   //   // decoration: InputDecoration(
-                                              //   //   //   hintText: "Wedding Date",
-                                              //   //   // ),
-                                              //   //   firstDate: DateTime.now(),
-                                              //   //   lastDate: DateTime(2050),
-                                              //   //   fieldHintText: "01/01/2020",
-                                              //   //   // initialDate: DateTime.now(),
-                                              //   //   errorInvalidText: "Invalid date",
-                                              //   //   errorFormatText: "Invalid format",
-                                              //   // ),
-                                              //   title: Center(
-                                              //     child: Icon(Icons.calendar_today_rounded),
-                                              //   ),
-                                              // ),
-
-                                              // ElevatedButton(
-                                              //     onPressed: () {
-                                              //       userDetailMap.addAll({
-                                              //         "name": namectr.value.text,
-                                              //         "email": emailctr.value.text,
-                                              //         "password": pwctr.value.text,
-                                              //         "city": cityctr.value.text,
-                                              //         "country": countryctr.value.text,
-                                              //       });
-                                              // _signUpUser().then((value) {
-                                              //   // if (value) {
-                                              //   //   signinUser(emailctr.value.text,
-                                              //   //           pwctr.value.text)
-                                              //   //       .then((value) {
-                                              //   //     if (value) {
-                                              //   //       verifyUser().then((value) {
-                                              //   //         print("helllllo");
-                                              //   //       });
-                                              //   //     } else {}
-                                              //   //   });
-                                              //   // } else {
-                                              //   //   namectr.clear();
-                                              //   //   emailctr.clear();
-                                              //   //   pwctr.clear();
-                                              //   // }
-                                              //   print(value);
-                                              //   print("going to change page");
-                                              //   _key.currentState!.resetCenter();
-                                              //   Navigator.of(context).pop();
-                                              //   // }
-                                              // });
-                                              //   setState(() {
-                                              //     cpi = true;
-                                              //   });
-                                              // },
-                                              // child: Text('Sign Up')),
                                             ]),
                                       ),
                                     )))),

@@ -57,22 +57,6 @@ class _LogoAnimState extends State<LogoAnim> {
                         shape: BoxShape.circle, color: Colors.yellow[800]),
                   ),
                 ),
-                // Center(
-                //   child: Container(
-                //     width: size - 40,
-                //     height: size - 40,
-                //     decoration: BoxDecoration(
-                //         color: Colors.white, shape: BoxShape.circle),
-                //     child: Center(
-                //         child: Text(
-                //       "$percentage",
-                //       style: TextStyle(
-                //           fontSize: 25,
-                //           color: Colors.blue,
-                //           fontWeight: FontWeight.bold),
-                //     )),
-                //   ),
-                // )
                 Center(
                   child: Container(
                     width: size - 10,

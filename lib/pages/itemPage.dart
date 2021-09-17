@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:parinaya/constants/screendimensions.dart';
-import 'package:parinaya/models/category.dart';
-import 'package:parinaya/models/subcategory.dart';
+
 import 'package:parinaya/providers/dataPro.dart';
 import 'package:parinaya/widgets/itemShowWIdget.dart';
 import 'package:provider/provider.dart';

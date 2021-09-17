@@ -5,18 +5,15 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:parinaya/constants/screendimensions.dart';
 import 'package:parinaya/models/category.dart';
-// import 'package:parinaya/models/appUser.dart';
+
 import 'package:parinaya/models/colors.dart';
-import 'package:parinaya/models/saveContext.dart';
-// import 'package:parinaya/models/location.dart';
+
 import 'package:parinaya/pages/galleryScreen.dart';
 import 'package:parinaya/pages/homeScreen.dart';
-import 'package:parinaya/pages/servicesScreen.dart';
+
 import 'package:parinaya/pages/userScreen.dart';
 import 'package:parinaya/providers/dataPro.dart';
-// import 'package:parinaya/providers/locationProvider.dart';
-import 'package:parinaya/widgets/emailVerificationCheck.dart';
-import 'package:flutter_cache_manager/flutter_cache_manager.dart';
+
 import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
@@ -35,27 +32,6 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    // AppUser userCredential =
-    //     ModalRoute.of(context)!.settings.arguments as AppUser;
-
-    // var locationpro = Provider.of<LocationPro>(context, listen: false);
-    // locationpro.setLocation(
-    //     Location(id: "location1", locaion: "Jhansi", ourServices: []), false);
-
-    // if (widget.user!.emailVerified) {
-    //   // getUserDetails(widget.user!.uid);
-    // } else {
-    //   checkSendEmailAndKeepChecking().then((value) {
-    //     if (value["status"] == "successful") {
-    //       // getUserDetails(widget.user!.uid);
-    //     } else {}
-    //     // Future.delayed(Duration(seconds: 4))
-    //     //     .then((value) => Navigator.of(context).pop());
-    //     // setState(() {
-    //     //   dispMes = value["status"];
-    //     // });
-    //   });
-    // }
     print("inhp");
     catpro = Provider.of<CategoryPro>(context, listen: false);
   }

@@ -97,46 +97,6 @@ class _DropDownTileState extends State<DropDownTile> {
               ),
             )
           ]),
-    )
-        // : GestureDetector(
-        //     onTap: () {
-        //       setState(() {
-        //         extend = true;
-        //       });
-        //     },
-        //     child: Container(
-        //         alignment: Alignment.centerLeft,
-        //         height: getScreenHeight / 20,
-        //         child: Text(showwid!)))),
-        );
+    ));
   }
 }
-
-// DropdownButton<String>(
-//         underline: Container(
-//           height: 3,
-//           width: getScreenWidth,
-//           color: Colors.white,
-//         ),
-//         dropdownColor: Colors.black.withOpacity(0.5),
-//         hint: Text(
-//           (widget.typ! == 'events') ? ueventType! : ulocation!,
-//           style: TextStyle(color: Colors.white),
-//         ),
-//         items: widget.l!.map((String value) {
-//           return DropdownMenuItem<String>(
-//             onTap: () {
-//               if (widget.typ! == 'events')
-//                 ueventType = value;
-//               else
-//                 ulocation = value;
-//               setState(() {});
-//             },
-//             value: value,
-//             child: Text(
-//               value,
-//             ),
-//           );
-//         }).toList(),
-//         onChanged: (_) {},
-//       ),

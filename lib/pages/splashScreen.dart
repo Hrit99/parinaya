@@ -8,8 +8,7 @@ import 'package:parinaya/constants/screendimensions.dart';
 import 'package:parinaya/models/colors.dart';
 import 'package:parinaya/pages/homePage.dart';
 import 'package:parinaya/pages/startPage.dart';
-// import 'package:parinaya/widgets/background.dart';
-// import 'package:parinaya/widgets/emailVerificationCheck.dart';
+
 import 'package:parinaya/widgets/logo.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -84,72 +83,7 @@ class _SplashScreenState extends State<SplashScreen> {
                       vcenter: getScreenHeight / 2,
                     ),
                   ]),
-                )
-          // body: Stack(children: [
-          //   (!_error!)
-          //       ? ((_initialized!)
-          //           ? FutureBuilder(
-          //               future: checkUserVerified(),
-          //               builder: (context, snapshot) {
-          //                 if (snapshot.hasData) {
-          //                   print("jjkk");
-          //                   print(snapshot.data);
-          //                   if (snapshot.data == true) {
-          //                     print("true");
-          //                     return Logo(
-          //                       cpi: false,
-          //                       hcenter: getScreenWidth / 2,
-          //                       logoHeight: getScreenWidth / 5,
-          //                       logoWidth: getScreenWidth / 5,
-          //                       vcenter: getScreenHeight / 2,
-          //                     );
-          //                   } else {
-          //                     Future.delayed(Duration(seconds: 2)).then(
-          //                         (value) =>
-          //                             Navigator.of(context).pushAndRemoveUntil(
-          //                                 PageRouteBuilder(
-          //                                   transitionDuration:
-          //                                       Duration(seconds: 3),
-          //                                   opaque: false,
-          //                                   pageBuilder: (context, animation,
-          //                                           secondaryAnimation) =>
-          //                                       StartPage(),
-          //                                 ),
-          //                                 (Route<dynamic> route) => false));
-          //                     print("false--");
-          //                     return Logo(
-          //                       cpi: false,
-          //                       hcenter: getScreenWidth / 2,
-          //                       logoHeight: getScreenWidth / 5,
-          //                       logoWidth: getScreenWidth / 5,
-          //                       vcenter: getScreenHeight / 2,
-          //                     );
-          //                   }
-          //                 } else {
-          // return Logo(
-          //   cpi: true,
-          //   hcenter: getScreenWidth / 2,
-          //   logoHeight: getScreenWidth / 5,
-          //   logoWidth: getScreenWidth / 5,
-          //   vcenter: getScreenHeight / 2,
-          // );
-          //                 }
-          //               },
-          //             )
-          //           : Logo(
-          //               cpi: true,
-          //               hcenter: getScreenWidth / 2,
-          //               logoHeight: getScreenWidth / 5,
-          //               logoWidth: getScreenWidth / 5,
-          //               vcenter: getScreenHeight / 2,
-          //             ))
-          //       : Center(
-          //           child: Container(
-          //               height: getScreenHeight / 10,
-          //               width: getScreenWidth / 1.5,
-          //               child: Center(child: Text("404 error")))),
-          // ])
-          ),
+                )),
     );
   }
 
