@@ -1,6 +1,11 @@
 # parinaya
-
-A new Flutter project.
+An application build using flutter and firebase for Wedding Planning startup 'Parinay'. Backend is built over MongoDB.
+Features of the application includes: -
+1. Sign in manually / using google / using phone number. Get verification done instantly.
+2. Add categories and subcategries of services provided by the company.
+3. Categories and subcategories displays Images related to the services offered.
+4. Editable profile. 
+5. State management throughout the application.
 
 ## Getting Started
 
