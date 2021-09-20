@@ -9,8 +9,9 @@ Features of the application includes: -
 
 Some screenshots of the application : 
 
-![image](https://user-images.githubusercontent.com/43970492/133972138-fc71e76b-a608-48cc-b542-8cdc3d9bb87f.png)
-![image](https://user-images.githubusercontent.com/43970492/133972221-a4baa643-4a28-45de-985b-935f10a1d4ec.png)
+![image](https://user-images.githubusercontent.com/43970492/133972767-e09794c2-c7a2-4353-8ac5-50e14ed455dc.png)
+![image](https://user-images.githubusercontent.com/43970492/133972805-287b6d03-e2f1-45c1-ac89-63f3e4d96e38.png)
+
 
 
 ## Getting Started
