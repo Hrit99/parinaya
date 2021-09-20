@@ -7,6 +7,12 @@ Features of the application includes: -
 4. Editable profile. 
 5. State management throughout the application.
 
+Some screenshots of the application : 
+
+![image](https://user-images.githubusercontent.com/43970492/133972138-fc71e76b-a608-48cc-b542-8cdc3d9bb87f.png)
+![image](https://user-images.githubusercontent.com/43970492/133972221-a4baa643-4a28-45de-985b-935f10a1d4ec.png)
+
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
